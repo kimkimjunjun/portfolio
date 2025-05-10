@@ -1,14 +1,14 @@
 export default function Experience() {
     return (
-        <div className="ml-[5rem]">
-            <h1 className="text-[4rem] font-bold">경력사항</h1>
+        <div className="mx-[2rem] lg:ml-[5rem]">
+            <h1 className="text-[2rem] lg:text-[4rem] font-bold">경력사항</h1>
             <div className="2xl:w-[70rem] xl:w-[61rem]">
-                <div className="flex items-center mt-[2rem]">
-                    <span className="text-[2rem] font-medium">(주) 슬기로운낭만지기</span>
-                    <span className="text-[1.2rem] ml-auto text-gray-400">2023.12 ~ 2025.02</span>
+                <div className="flex items-center lg:mt-[2rem]">
+                    <span className="text-[1.4rem] lg:text-[2rem] font-medium">(주) 슬기로운낭만지기</span>
+                    <span className="text-[0.5rem] lg:text-[1.2rem] ml-auto text-gray-400">2023.12 ~ 2025.02</span>
                 </div>
                 <div className="flex flex-col text-[1.2rem]">
-                    <span className="text-[1.5rem]">LLM을 활용한 숙박업소 관리 플랫폼</span>
+                    <span className="text-[1.2rem] lg:text-[1.5rem]">LLM을 활용한 숙박업소 관리 플랫폼</span>
                     <span>근무 형태 | 프리랜서</span>
                     <div className="text-gray-500 flex flex-col grow">
                         <span>■ 업무 내용</span>
