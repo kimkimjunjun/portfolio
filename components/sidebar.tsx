@@ -40,7 +40,7 @@ export default function SideBar() {
         lg:fixed lg:top-auto lg:left-auto lg:h-screen lg:w-[15rem] lg:flex-col lg:border-r lg:border-gray-300 lg:shadow-2xl lg:p-0 lg:items-stretch lg:justify-start lg:z-auto lg:bg-transparent
     ">
             <div className="
-            flex flex-row space-x-4 lg:flex-col lg:space-y-5 lg:mt-[3rem] lg:px-[1rem] font-extrabold lg:space-x-0 items-center
+            flex flex-row space-x-1 lg:flex-col lg:space-y-5 lg:mt-[3rem] lg:px-[1rem] font-extrabold lg:space-x-0 items-center
         ">
                 {sections.map((section) => (
                     <span
