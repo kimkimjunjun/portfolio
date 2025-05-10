@@ -38,11 +38,17 @@ export default function SideBar() {
                 {sections.map((section) => (
                     <span
                         key={section.id}
-                        className="hover:bg-gray-400 hover:text-white cursor-pointer text-center xl:text-[1.5rem] lg:text-[1rem] py-[0.5rem] rounded-[1rem] px-[0.5rem] lg:px-[0rem] lg:py-[0.5rem]" // 작은 화면에서 px 추가, 큰 화면에서 원복
+                        className="
+                        hover:bg-gray-400 hover:text-white cursor-pointer text-center
+                        text-[1rem] lg:text-[1.5rem]                    
+                        py-[0.5rem] rounded-[1rem] px-[0.5rem]
+                        lg:px-[0rem] lg:py-[0.5rem]
+                    "
                         onClick={() => handleScrollToSection(section.id)}
                     >
                         {section.name}
                     </span>
+
                 ))}
             </div>
         </div>

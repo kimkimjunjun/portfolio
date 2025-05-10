@@ -44,7 +44,7 @@ export default function Home() {
       ) : (
         <div className={`${isClicked && "fadeIn"} flex h-full w-full`}>
           <SideBar />
-          <div className="w-full ml-[15rem]">
+          <div className="w-full ml-0 lg:ml-[15rem] mt-[5rem] lg:mt-0">
             <div id="about-me">
               <Introduction />
             </div>
