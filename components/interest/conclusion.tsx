@@ -13,35 +13,10 @@ export default function Conclusion() {
                 <Link
                     href="https://github.com/kimkimjunjun"
                     className="
-                    relative                      /* 가상 요소의 위치 기준 설정 */
-                    inline-block                  /* 가상 요소가 부모의 크기에 맞게 설정되도록 */
-                    w-fit                         /* 내용물 너비에 맞춤 */
-                    text-[2rem] font-semibold my-[2rem] /* 텍스트 스타일 */
-                    border-b border-black         /* 초기 밑줄 테두리 */
-                    overflow-hidden               /* 애니메이션 중 가상 요소가 넘치지 않도록 숨김 */
-                    transition-colors duration-300 /* hover 시 텍스트 색상 변경 애니메이션 */
-
-                    /* 기본 텍스트 색상 명시 (필요시) */
-                    text-black
-
-                    /* --- 가상 요소 (::before) 스타일 --- */
-                    /* content 속성은 비워둡니다. 텍스트는 가상 요소에 넣지 않습니다. */
-                    before:content-['']           
-                    before:absolute               
-                    before:bottom-0 before:left-0 
-                    before:w-full                 
-                    before:h-0                    /* 초기 높이 0 */
-                    before:bg-black               /* 배경색 검은색 */
-                    before:transition-[height] before:duration-300 before:ease-in-out /* 높이 변화 애니메이션 */
-                    before:z-0                    /* 가상 요소를 뒤에 배치 */
-
-                    /* --- hover 시 스타일 --- */
-                    hover:text-white              /* hover 시 텍스트 색상을 흰색으로 변경 */
-                    hover:before:h-full           /* hover 시 가상 요소의 높이를 100%로 설정 */
+                    relative inline-block w-fit text-[2rem] font-semibold my-[2rem] border-b border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
                 "
                 >
-                    {/* 텍스트 콘텐츠를 span으로 감싸고 z-index를 적용하여 앞으로 나오게 합니다. */}
-                    <span className="relative z-10"> {/* relative와 z-10을 추가했습니다. */}
+                    <span className="relative z-10">
                         Github
                     </span>
                 </Link>
