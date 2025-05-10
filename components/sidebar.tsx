@@ -1,8 +1,50 @@
+interface Section {
+    name: string;
+    id: string;
+}
+
+const sections: Section[] = [
+    { name: "ABOUT ME", id: "about-me" },
+    { name: "EDUCATION", id: "education" },
+    { name: "EXPERIENCE", id: "experience" },
+    { name: "SKILL", id: "skill" },
+    { name: "PROJECT", id: "project" },
+    { name: "INTEREST", id: "interest" },
+];
+
 export default function SideBar() {
+    const scrollOffset = 81;
+
+    const handleScrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+
+        if (element) {
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition - scrollOffset,
+                behavior: 'smooth',
+            });
+        }
+    };
+
     return (
-        <div className="fixed h-screen w-[10rem] border-r border-gray-300 shadow-2xl flex flex-col text-center text-[1rem]">
-            <span>학력사항</span>
-            <span>경력사항</span>
+        <div className="
+        fixed top-0 left-0 w-full h-auto flex flex-row items-center justify-center p-4 border-b border-gray-300 shadow-md bg-white z-10
+        lg:fixed lg:top-auto lg:left-auto lg:h-screen lg:w-[15rem] lg:flex-col lg:border-r lg:border-gray-300 lg:shadow-2xl lg:p-0 lg:items-stretch lg:justify-start lg:z-auto lg:bg-transparent
+    ">
+            <div className="
+            flex flex-row space-x-4 lg:flex-col lg:space-y-5 lg:mt-[3rem] lg:px-[1rem] font-extrabold lg:space-x-0
+        ">
+                {sections.map((section) => (
+                    <span
+                        key={section.id}
+                        className="hover:bg-gray-400 hover:text-white cursor-pointer text-center xl:text-[1.5rem] lg:text-[1rem] py-[0.5rem] rounded-[1rem] px-[0.5rem] lg:px-[0rem] lg:py-[0.5rem]" // 작은 화면에서 px 추가, 큰 화면에서 원복
+                        onClick={() => handleScrollToSection(section.id)}
+                    >
+                        {section.name}
+                    </span>
+                ))}
+            </div>
         </div>
-    )
+    );
 }

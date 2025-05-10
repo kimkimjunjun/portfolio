@@ -4,7 +4,7 @@ export default function Education() {
             <h1 className=" text-[4rem] font-bold">학력사항</h1>
             <div>
                 <div className="2xl:w-[70rem] xl:w-[61rem] flex items-center mt-[2rem]">
-                    <span className="text-[2rem] font-medium">HANYANG UNIVERSITY ERICA</span>
+                    <span className="text-[2rem] font-bold">HANYANG UNIVERSITY ERICA</span>
                     <span className="text-[1.2rem] ml-auto text-gray-400">2021.03 ~ 2025.02</span>
                 </div>
                 <div className="flex flex-col">
@@ -12,7 +12,7 @@ export default function Education() {
                     <span className="text-[1.5rem] text-gray-500">졸업</span>
                 </div>
                 <div className="2xl:w-[70rem] xl:w-[61rem] flex items-center mt-[2rem]">
-                    <span className="text-[2rem] font-medium">KYUNGHEE HIGH SCHOOL</span>
+                    <span className="text-[2rem] font-bold">KYUNGHEE HIGH SCHOOL</span>
                     <span className="text-[1.2rem] ml-auto text-gray-400">2014.03 ~ 2017.02</span>
                 </div>
                 <div className="flex flex-col">

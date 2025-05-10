@@ -1,21 +1,13 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import TypingComponent from "@/components/typing/typing";
 import SideBar from "@/components/sidebar";
 import Introduction from "@/components/introduction/introduction";
 import Education from "@/components/ground/education";
 import Experience from "@/components/ground/experience";
+import Skill from "@/components/skill/skill";
+import Project from "@/components/project/project";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   const [showFirstTag, setShowFirstTag] = useState(true); // 첫 번째 태그를 보여줄지 결정하는 상태
@@ -41,6 +33,8 @@ export default function Home() {
     return () => clearTimeout(timer);
   };
 
+
+
   return (
     <div>
       {showFirstTag ? (
@@ -48,14 +42,32 @@ export default function Home() {
           <TypingComponent onTypingComplete={handleTypingComplete} />
         </div>
       ) : (
-        <div className="fadeIn flex h-full w-full">
+        <div className={`${isClicked && "fadeIn"} flex h-full w-full`}>
           <SideBar />
-          <div className="w-full ml-[10rem]">
-            <Introduction />
+          <div className="w-full ml-[15rem]">
+            <div id="about-me">
+              <Introduction />
+            </div>
             <hr className="mx-[1rem] my-[5rem]" />
-            <Education />
+
+            <div id="education">
+              <Education />
+            </div>
             <hr className="mx-[1rem] my-[5rem]" />
-            <Experience />
+
+            <div id="experience">
+              <Experience />
+            </div>
+            <hr className="mx-[1rem] my-[5rem]" />
+
+            <div id="skill">
+              <Skill />
+            </div>
+            <hr className="mx-[1rem] my-[5rem]" />
+
+            <div id="project">
+              <Project />
+            </div>
             <hr className="mx-[1rem] my-[5rem]" />
           </div>
         </div>
