@@ -6,6 +6,7 @@ import Education from "@/components/ground/education";
 import Experience from "@/components/ground/experience";
 import Skill from "@/components/skill/skill";
 import Project from "@/components/project/project";
+import Conclusion from "@/components/interest/conclusion";
 
 
 
@@ -68,7 +69,10 @@ export default function Home() {
             <div id="project">
               <Project />
             </div>
-            <hr className="mx-[1rem] my-[5rem]" />
+            <hr className="mx-[1rem] mt-[5rem]" />
+            <div id="conclusion" className="backgroundimg">
+              <Conclusion />
+            </div>
           </div>
         </div>
       )

@@ -88,3 +88,10 @@ body {
 .fadeOut {
   animation: fadeOut 3s ease-out forwards;
 }
+
+.backgroundimg {
+  background-image: url(/images/soge.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

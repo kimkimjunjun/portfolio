@@ -9,7 +9,7 @@ const sections: Section[] = [
     { name: "EXPERIENCE", id: "experience" },
     { name: "SKILL", id: "skill" },
     { name: "PROJECT", id: "project" },
-    { name: "INTEREST", id: "interest" },
+    { name: "CONCLUSION", id: "conclusion" },
 ];
 
 export default function SideBar() {
@@ -49,7 +49,7 @@ export default function SideBar() {
                         hover:bg-gray-400 hover:text-white cursor-pointer text-center
                         text-[0.5rem] md:text-[1rem] lg:text-[1.5rem]                    
                         py-[0.5rem] rounded-[1rem] px-[0.5rem]
-                        lg:px-[0rem] lg:py-[0.5rem]
+                        lg:px-[0.5rem] lg:py-[0.5rem]
                     "
                         onClick={() => handleScrollToSection(section.id)}
                     >
