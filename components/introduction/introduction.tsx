@@ -3,7 +3,7 @@ import intro from "@/public/images/intro.jpg"
 
 export default function Introduction() {
     return (
-        <div className="lg:flex ml-[2rem] lg:ml-[5rem] mt-[5rem] h-[16rem] items-center">
+        <div className="lg:flex ml-[2rem] lg:ml-[5rem] mt-[2rem] lg:mt-[5rem] h-[16rem] items-center mb-[4rem] lg:mb-0">
             <Image className="rounded-full w-[12rem] lg:w-[18rem] h-[12rem] lg:h-[18rem] mx-auto lg:mx-0" src={intro} alt="" />
             <div className="flex flex-col justify-center text-center lg:text-left lg:ml-[3rem]">
                 <h1 className="text-[2rem] lg:text-[4rem] font-bold">JUN HWI KIM</h1>

@@ -48,12 +48,12 @@ export default function Home() {
             <div id="about-me">
               <Introduction />
             </div>
-            <hr className="mx-[1rem] my-[5rem]" />
+            <hr className="mx-[1rem] lg:my-[5rem]" />
 
             <div id="education">
               <Education />
             </div>
-            <hr className="mx-[1rem] my-[5rem]" />
+            <hr className="mx-[1rem] my-[1.5rem] lg:my-[5rem]" />
 
             <div id="experience">
               <Experience />
