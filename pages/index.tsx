@@ -58,12 +58,12 @@ export default function Home() {
             <div id="experience">
               <Experience />
             </div>
-            <hr className="mx-[1rem] my-[5rem]" />
+            <hr className="mx-[1rem] my-[1.5rem] lg:my-[5rem]" />
 
             <div id="skill">
               <Skill />
             </div>
-            <hr className="mx-[1rem] my-[5rem]" />
+            <hr className="mx-[1rem] my-[1.5rem] lg:my-[5rem]" />
 
             <div id="project">
               <Project />

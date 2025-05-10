@@ -4,8 +4,8 @@ import Link from "next/link"
 
 export default function Project() {
     return (
-        <div className="ml-[5rem]">
-            <h1 className=" text-[4rem] font-bold">프로젝트</h1>
+        <div className="mx-[2rem] lg:ml-[5rem]">
+            <h1 className="text-[2rem] lg:text-[4rem] font-bold">프로젝트</h1>
             <div className="mt-[2rem]">
                 <Link href="/rosegold">
                     <div className={`w-[20rem] border border-gray-300 rounded-[4px] shadow-md hover:opacity-80 hover:-translate-y-2 duration-300`}>

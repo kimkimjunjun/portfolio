@@ -1,7 +1,7 @@
 export default function Skill() {
     return (
-        <div className="ml-[5rem]">
-            <h1 className=" text-[4rem] font-bold">기술스택</h1>
+        <div className="mx-[2rem] lg:ml-[5rem]">
+            <h1 className="text-[2rem] lg:text-[4rem] font-bold">기술스택</h1>
             <div className="2xl:w-[70rem] xl:w-[61rem] mt-[2rem] flex flex-wrap">
                 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" />
                 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white" />
