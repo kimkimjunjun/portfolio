@@ -2,6 +2,10 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import TypingComponent from "@/components/typing/typing";
+import SideBar from "@/components/sidebar";
+import Introduction from "@/components/introduction/introduction";
+import Education from "@/components/ground/education";
+import Experience from "@/components/ground/experience";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,8 +48,16 @@ export default function Home() {
           <TypingComponent onTypingComplete={handleTypingComplete} />
         </div>
       ) : (
-        <div className="fadeIn">
-          dd
+        <div className="fadeIn flex h-full w-full">
+          <SideBar />
+          <div className="w-full ml-[10rem]">
+            <Introduction />
+            <hr className="mx-[1rem] my-[5rem]" />
+            <Education />
+            <hr className="mx-[1rem] my-[5rem]" />
+            <Experience />
+            <hr className="mx-[1rem] my-[5rem]" />
+          </div>
         </div>
       )
       }
