@@ -50,10 +50,10 @@ export default function Slider({ images }: SliderProps) {
             <Image
                 src={images[currentImageIndex]}
                 alt={`Slide ${currentImageIndex + 1}`}
-                width={800}
+                width={1000}
                 height={500}
                 className="w-full h-auto"
-                objectFit="cover"
+            // objectFit="cover"
             />
 
             {images.length > 1 && (
