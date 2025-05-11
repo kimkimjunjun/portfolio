@@ -50,11 +50,11 @@ export default function SideBar({ activeSectionId }: SideBarProps) {
                     <span
                         key={section.id}
                         className={`
-                             hover:opacity-70 cursor-pointer text-center 
+                              cursor-pointer text-center 
                             text-[0.5rem] md:text-[1rem] lg:text-[1.5rem]
                             py-[0.5rem] rounded-[1rem] px-[0.5rem]
                             lg:px-[0.5rem] lg:py-[0.5rem]
-                            ${section.id === activeSectionId ? 'text-black font-extrabold' : 'text-black font-extrabold opacity-50'} {/* 활성화 상태에 따라 텍스트 색상 및 굵기 변경 */}
+                            ${section.id === activeSectionId ? 'text-black font-extrabold' : 'text-black font-extrabold opacity-50 hover:opacity-70'}
                         `}
                         onClick={() => handleScrollToSection(section.id)}
                     >
