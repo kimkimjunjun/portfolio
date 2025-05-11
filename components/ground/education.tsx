@@ -16,7 +16,7 @@ export default function Education() {
                     <span className="text-[0.5rem] lg:text-[1.2rem] ml-auto text-gray-400">2014.03 ~ 2017.02</span>
                 </div>
                 <div className="flex flex-col">
-                    <span className="text-[1rem] lg:text-[1.5rem]">인문계열 이과</span>
+                    <span className="text-[1rem] lg:text-[1.5rem]">자연계열 이과</span>
                     <span className="text-[1rem] lg:text-[1.5rem] text-gray-500">졸업</span>
                 </div>
             </div>
