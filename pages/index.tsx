@@ -26,20 +26,23 @@ const sectionIds = [
 export default function Home() {
   const [showFirstTag, setShowFirstTag] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
-  const [showFirsted, setShowFirsted] = useState(false);
+  const [shouldApplyFadeIn, setShouldApplyFadeIn] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
-  const firstVisit = typeof window !== 'undefined' ? localStorage.getItem('firstVisit') : null;
+
 
   useEffect(() => {
-
+    const firstVisit = typeof window !== 'undefined' ? localStorage.getItem('firstVisit') : null;
 
     if (!firstVisit) {
       if (typeof window !== 'undefined') {
         localStorage.setItem('firstVisit', 'false');
       }
+      setShowFirstTag(true);
+      setShouldApplyFadeIn(true);
     } else {
       setShowFirstTag(false);
       setIsClicked(true);
+      setShouldApplyFadeIn(false);
     }
   }, []);
 
@@ -91,11 +94,11 @@ export default function Home() {
           <TypingComponent onTypingComplete={handleTypingComplete} />
         </div>
       ) : (
-        <div className={`${!firstVisit ? "fadeIn" : ""} flex h-full w-full flex-col lg:flex-row`}>
+        <div className={`${shouldApplyFadeIn ? "fadeIn" : ""} flex h-full w-full flex-col lg:flex-row`}>
           <SideBar activeSectionId={activeSectionId} />
 
           <div className="w-full ml-0 lg:ml-[15rem] mt-[4rem] lg:mt-0">
-            <div id="about-me" className="my-[5rem]">
+            <div id="about-me" className="my-[5rem] md:my-[10rem]">
               <Introduction />
             </div>
             <hr className="mx-[1rem]" />

@@ -48,7 +48,7 @@ export default function Slider({ images }: SliderProps) {
     }
 
     return (
-        <div className="relative w-full h-[20rem] lg:h-[30rem] max-w-4xl mt-[2rem] overflow-hidden">
+        <div className="relative w-full h-[20rem] lg:h-[35rem] max-w-4xl mt-[2rem] overflow-hidden">
             <Image
                 src={images[currentImageIndex]}
                 alt={`Slide ${currentImageIndex + 1}`}
