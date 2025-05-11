@@ -11,6 +11,7 @@ import Experience from "@/components/ground/experience";
 import Skill from "@/components/skill/skill";
 import Project from "@/components/project/project";
 import Conclusion from "@/components/interest/conclusion";
+import Cookies from 'js-cookie';
 
 
 const sectionIds = [
@@ -31,12 +32,11 @@ export default function Home() {
 
 
   useEffect(() => {
-    const firstVisit = typeof window !== 'undefined' ? localStorage.getItem('firstVisit') : null;
+    const visited = Cookies.get('visited');
 
-    if (!firstVisit) {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('firstVisit', 'false');
-      }
+    if (!visited) {
+      Cookies.set('visited', 'true', { expires: 2 });
+
       setShowFirstTag(true);
       setShouldApplyFadeIn(true);
     } else {
@@ -103,27 +103,27 @@ export default function Home() {
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="education" className="my-[5rem]">
+            <div id="education" className="my-[5rem] md:my-[10rem]">
               <Education />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="experience" className="my-[5rem]">
+            <div id="experience" className="my-[5rem] md:my-[10rem]">
               <Experience />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="skill" className="my-[5rem]">
+            <div id="skill" className="my-[5rem] md:my-[10rem]">
               <Skill />
             </div>
             <hr className="mx-[1rem] " />
 
-            <div id="project" className="my-[5rem]">
+            <div id="project" className="my-[5rem] md:my-[10rem]">
               <Project />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="conclusion" className="backgroundimg py-[5rem]">
+            <div id="conclusion" className="backgroundimg pt-[5rem]">
               <Conclusion />
             </div>
           </div>

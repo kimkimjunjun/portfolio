@@ -20,7 +20,7 @@ interface SideBarProps {
 
 
 export default function SideBar({ activeSectionId }: SideBarProps) {
-    const desktopScrollOffset = 81;
+    const desktopScrollOffset = 85;
     const mobileScrollOffset = 90;
 
     const handleScrollToSection = (id: string) => {
