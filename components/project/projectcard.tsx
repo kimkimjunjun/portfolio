@@ -8,9 +8,10 @@ interface ProjectCardProps {
     imageSrc: string | StaticImageData;
     title: string;
     description: string;
+    date: string;
 }
 
-export default function ProjectCard({ href, imageSrc, title, description }: ProjectCardProps) {
+export default function ProjectCard({ href, imageSrc, title, description, date }: ProjectCardProps) {
     return (
         <Link href={href} passHref>
             <div className="
@@ -39,6 +40,7 @@ export default function ProjectCard({ href, imageSrc, title, description }: Proj
                         </p>
                     </div>
                 </div>
+                <span className='ml-auto pb-[1rem] pr-[1rem] font-bold text-[0.8rem] text-gray-400'>{date}</span>
             </div>
         </Link>
     );

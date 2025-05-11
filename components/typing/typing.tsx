@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimeProps {
-    onTypingComplete: () => void; // 타이핑이 완료되었을 때 호출할 콜백 함수
+    onTypingComplete: () => void;
 }
 
 export default function TypingComponent({ onTypingComplete }: TimeProps) {
