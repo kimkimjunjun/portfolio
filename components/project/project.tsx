@@ -39,7 +39,7 @@ export default function Project() {
     return (
         <div className='mx-[2rem] lg:ml-[5rem]'>
             <h1 className='text-[2rem] lg:text-[4rem] font-bold mb-[1rem]'>프로젝트</h1>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-6 pr-[1rem]">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-6">
                 {projectsData.map((project, index) => (
                     <ProjectCard
                         key={index}
