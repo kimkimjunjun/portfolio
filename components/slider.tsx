@@ -1,15 +1,7 @@
-'use client';
-
 import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
-
-// Embla Carousel React 훅 임포트
 import useEmblaCarousel from 'embla-carousel-react';
-
-// Embla Carousel 코어 라이브러리에서 API 타입 임포트 <--- 여기를 수정합니다.
 import { EmblaCarouselType } from 'embla-carousel';
-
-
 interface SliderProps {
     images: string[];
 }
