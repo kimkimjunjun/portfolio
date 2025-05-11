@@ -141,7 +141,7 @@ export default function Spark() {
         <div className="flex flex-col pt-[2rem] mb-[10rem]">
             <Backbutton />
             <div className='mx-[1rem]'>
-                <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>한양대 ERICA 디자인대학 졸업전시회</h1>
+                <h1 className='text-[1.5rem] md:text-[3.5rem] font-bold'>한양대 ERICA 디자인대학 졸업전시회</h1>
                 <h2 className='text-[1rem] md:text-[1.5rem]'>한양대 ERICA 디자인대학 학생들의 졸업작품을 온라인에서 전시해주는 사이트</h2>
                 <span className='text-[0.8rem]'>개발환경: TYPESCRIPT | NEXT.JS | REACT-QUERY | RECOIL | TAILWIND</span>
             </div>

@@ -153,7 +153,7 @@ export default function Trippy() {
         <div className="flex flex-col pt-[2rem] mb-[10rem]">
             <Backbutton />
             <div className='mx-[1rem]'>
-                <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>여행지 정보 공유 및 날씨 추천 플랫폼</h1>
+                <h1 className='text-[1.5rem] md:text-[3.5rem] font-bold'>여행지 정보 공유 및 날씨 추천 플랫폼</h1>
                 <h2 className='text-[1rem] md:text-[1.5rem]'>한국관광공사 및 기상청 공공데이터를 활용하여 여행지 추천 및 후기를 공유할 수 있는 플랫폼</h2>
                 <span className='text-[0.8rem]'>개발환경: TYPESCRIPT | NEXT.JS | REACT-QUERY | RECOIL | TAILWIND</span>
             </div>
