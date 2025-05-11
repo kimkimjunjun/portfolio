@@ -9,7 +9,7 @@ export default function Backbutton() {
         router.back();
     };
     return (
-        <div className="w-full max-w-4xl px-[3rem] mb-[1rem]">
+        <div className="w-full max-w-4xl px-[2rem] mb-[1rem]">
             <button
                 onClick={handleGoBack}
                 className="cursor-pointer flex items-center border-2 border-black rounded-[1rem] px-[1rem] hover:bg-gray-300"

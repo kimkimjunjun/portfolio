@@ -3,7 +3,7 @@ import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
 import DeatilSection from '@/components/project/detailsection';
 
-const images = [
+const sliderImages = [
     '/images/slides/1.png',
     '/images/slides/2.png',
     '/images/slides/3.png',
@@ -43,6 +43,22 @@ const projectsData = [
     }
 ];
 
+const skillsData = [
+    {
+        title: "▶ FCM Token을 활용한 실시간 웹페이지 알림",
+        details: [
+            "- 실시간 알림 시스템을 구축하여 손님의 요청사항이 직원에게 즉시 전달되도록 함으로써, 신속하고 효율적인 고객 응대 프로세스 마련",
+            "- 직원이 해당 사이트를 이용 중이 아니더라도 백그라운드 및 포그라운드 환경 모두에서 알림이 정상적으로 표시되도록 구현",
+        ]
+    },
+    {
+        title: "▶ CI/CD 및 자동 배포 환경 구축",
+        details: [
+            "- Github Actions와 CI/CD 파이프라인을 활용하여 자동화된 배포 프로세스 구축",
+            "- 코드 변경 사항이 있을 시 신속하게 처리할 수 있도록 배포 환경 구축"
+        ]
+    },
+];
 
 const trubleData = [
     {
@@ -71,6 +87,7 @@ const boldKeywords = ["발생문제:", "발생원인:", "해결방법:", "결과
 
 export default function Rosegold() {
     const [openProjectIndices, setOpenProjectIndices] = useState<Set<number>>(new Set());
+    const [openSkillIndices, setOpenSkillIndices] = useState<Set<number>>(new Set());
     const [openTrubleIndices, setOpenTrubleIndices] = useState<Set<number>>(new Set());
 
     const handleProjectTitleClick = (index: number) => {
@@ -81,6 +98,16 @@ export default function Rosegold() {
             newOpenIndices.add(index);
         }
         setOpenProjectIndices(newOpenIndices);
+    };
+
+    const handleSkillTitleClick = (index: number) => {
+        const newOpenIndices = new Set(openSkillIndices);
+        if (newOpenIndices.has(index)) {
+            newOpenIndices.delete(index);
+        } else {
+            newOpenIndices.add(index);
+        }
+        setOpenSkillIndices(newOpenIndices);
     };
 
     const handleTrubleTitleClick = (index: number) => {
@@ -115,12 +142,16 @@ export default function Rosegold() {
             <div className='mx-[1rem]'>
                 <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>숙박업소 관리 플랫폼 - 로즈골드</h1>
                 <h2 className='text-[1rem] md:text-[1.5rem]'>LLM을 활용한 고객 대응 자동화 및 수많은 객실들을 간편하게 관리하는 플랫폼</h2>
+                <span className='text-[0.8rem]'>개발환경: TYPESCRIPT | NEXT.JS | REACT-QUERY | RECOIL | TAILWIND</span>
             </div>
-            <Slider />
+            <Slider images={sliderImages} />
             <DeatilSection
                 projectsData={projectsData}
                 openProjectIndices={openProjectIndices}
                 handleProjectTitleClick={handleProjectTitleClick}
+                skillsData={skillsData}
+                openSkillIndices={openSkillIndices}
+                handleSkillTitleClick={handleSkillTitleClick}
                 trubleData={trubleData}
                 openTrubleIndices={openTrubleIndices}
                 handleTrubleTitleClick={handleTrubleTitleClick}
