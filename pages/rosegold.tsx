@@ -1,6 +1,7 @@
 import Slider from '@/components/slider';
 import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
+import DeatilSection from '@/components/project/detailsection';
 
 const images = [
     '/images/slides/1.png',
@@ -10,8 +11,6 @@ const images = [
     '/images/slides/5.png',
 ];
 
-// Project 항목 데이터를 정의합니다.
-// 이 배열은 해당 컴포넌트 파일 내부에 두거나, 별도의 데이터 파일로 분리할 수 있습니다.
 const projectsData = [
     {
         title: "▶ 로그인 시 FCM 토큰 발급 및 Firebase 저장을 통한 실시간 알림 기능",
@@ -45,21 +44,70 @@ const projectsData = [
 ];
 
 
-export default function Rosegold() {
-    const [openIndices, setOpenIndices] = useState<Set<number>>(new Set());
+const trubleData = [
+    {
+        title: "▶ FCM Token 웹페이지 알림",
+        details: [
+            "발생문제:",
+            "- 정상적으로 FCM토큰을 발급받도록 코드를 구현했지만 토큰값이 정상적으로 생성이 안되는 문제가 발생",
 
-    const handleTitleClick = (index: number) => {
-        const newOpenIndices = new Set(openIndices);
+            "발생원인:",
+            "- FCM 메시징 부분은 클라이언트 환경에 의존적인 부분을 간과하여 SSR(Server Side Rendering) 환경에서 직접 실행하려고 시도를 하여 정상적으로 토큰발급이 안되는 것을 확인",
+
+            "해결방법:",
+            "- FCM 토큰을 발급하는 과정에서 해당 코드에 SSR을 사용한게 아닌 클라이언트 사이드에서만 실행되도록 useEffect 훅을 사용하여 분리하고 서비스 워커 API가 지원되는 브라우저 환경인지도 확인하는 조건문을 추가함",
+
+            "결과:",
+            "- 정상적으로 FCM 토큰 발급이 되어 해당 토큰을 쿠키데이터에 저장 후 사용되도록 구현하여 로그인 시 해당 API 호출을 하여 실시간 알림이 뜨도록 구현함",
+
+            "배운점:",
+            "- Next.js가 서버와 클라이언트 양쪽에서 코드를 실행할 수 있다는 특징과, 이로 인해 브라우저 전용 API에 접근하는 코드를 다룰 때 발생하는 문제를 명확히 이해함",
+            "- FCM과 같은 웹 푸시 알림 기능을 구현할 때 서비스 워커가 필수적이며, navigator.serviceWorker.register를 통해 서비스 워커를 올바르게 등록하는 과정이 중요하다는 걸 알게됨"
+        ]
+    },
+];
+
+const boldKeywords = ["발생문제:", "발생원인:", "해결방법:", "결과:", "배운점:"];
+
+export default function Rosegold() {
+    const [openProjectIndices, setOpenProjectIndices] = useState<Set<number>>(new Set());
+    const [openTrubleIndices, setOpenTrubleIndices] = useState<Set<number>>(new Set());
+
+    const handleProjectTitleClick = (index: number) => {
+        const newOpenIndices = new Set(openProjectIndices);
+        if (newOpenIndices.has(index)) {
+            newOpenIndices.delete(index);
+        } else {
+            newOpenIndices.add(index);
+        }
+        setOpenProjectIndices(newOpenIndices);
+    };
+
+    const handleTrubleTitleClick = (index: number) => {
+        const newOpenIndices = new Set(openTrubleIndices);
 
         if (newOpenIndices.has(index)) {
             newOpenIndices.delete(index);
         } else {
             newOpenIndices.add(index);
         }
-
-        setOpenIndices(newOpenIndices);
+        setOpenTrubleIndices(newOpenIndices);
     };
 
+    const renderDetailWithBoldKeyword = (detail: string) => {
+        for (const keyword of boldKeywords) {
+            if (detail.startsWith(keyword)) {
+                const restOfText = detail.substring(keyword.length);
+                return (
+                    <>
+                        <strong>{keyword}</strong>
+                        {restOfText}
+                    </>
+                );
+            }
+        }
+        return detail;
+    };
 
     return (
         <div className="flex flex-col pt-[2rem] mb-[10rem]">
@@ -69,46 +117,14 @@ export default function Rosegold() {
                 <h2 className='text-[1rem] md:text-[1.5rem]'>LLM을 활용한 고객 대응 자동화 및 수많은 객실들을 간편하게 관리하는 플랫폼</h2>
             </div>
             <Slider />
-            <div className="mt-[1rem] text-left flex flex-col mx-[1rem] lg:w-[56rem]">
-                <h1 className='text-[2rem] font-semibold'>[구현 내용]</h1>
-                <div>
-                    {projectsData.map((project, index) => {
-                        const isOpen = openIndices.has(index);
-
-                        const titleTextWithoutIcon = project.title.replace("▶ ", ""); // "▶ " 부분을 제거한 텍스트
-
-                        return (
-                            <div key={index} className='my-[0.5rem]'>
-                                <h2
-                                    className='text-[1.2rem] font-medium w-fit cursor-pointer'
-                                    onClick={() => handleTitleClick(index)}
-                                    aria-expanded={isOpen}
-                                >
-                                    {isOpen ? "▼ " : "▶ "}
-                                    {titleTextWithoutIcon}
-                                </h2>
-                                <div
-                                    className={`
-                                        overflow-hidden
-                                        transition-[max-height,opacity] duration-500 ease-in-out
-                                        ${isOpen ? 'max-h-[500px]' : 'max-h-0'}
-                                        ${isOpen ? 'opacity-100' : 'opacity-0'}
-                                        ${isOpen ? 'pt-2' : 'pt-0'}
-                                    `}
-                                >
-                                    <ul className='text-[1rem]'>
-                                        {project.details.map((detail, detailIndex) => (
-                                            <li key={detailIndex} >
-                                                {detail}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            <DeatilSection
+                projectsData={projectsData}
+                openProjectIndices={openProjectIndices}
+                handleProjectTitleClick={handleProjectTitleClick}
+                trubleData={trubleData}
+                openTrubleIndices={openTrubleIndices}
+                handleTrubleTitleClick={handleTrubleTitleClick}
+                renderDetailWithBoldKeyword={renderDetailWithBoldKeyword} />
         </div>
     );
 }
