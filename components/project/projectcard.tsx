@@ -35,7 +35,7 @@ export default function ProjectCard({ href, imageSrc, title, description, date }
                         {title}
                     </h4>
                     <div className='flex-1'>
-                        <p className='break-words text-[0.875rem] h-[3rem] text-ellipsis overflow-hidden'>
+                        <p className='break-words text-[0.875rem] h-[2.5rem] text-ellipsis overflow-hidden'>
                             {description}
                         </p>
                     </div>
