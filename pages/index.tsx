@@ -12,6 +12,7 @@ import Skill from "@/components/skill/skill";
 import Project from "@/components/project/project";
 import Conclusion from "@/components/interest/conclusion";
 import Cookies from 'js-cookie';
+import ProjectCard from "@/components/project/project";
 
 
 const sectionIds = [
@@ -22,7 +23,6 @@ const sectionIds = [
   "project",
   "conclusion",
 ];
-
 
 export default function Home() {
   const [showFirstTag, setShowFirstTag] = useState(true);
