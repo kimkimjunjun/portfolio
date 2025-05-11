@@ -1,72 +1,100 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+
+// Embla Carousel React 훅 임포트
+import useEmblaCarousel from 'embla-carousel-react';
+
+// Embla Carousel 코어 라이브러리에서 API 타입 임포트 <--- 여기를 수정합니다.
+import { EmblaCarouselType } from 'embla-carousel';
+
 
 interface SliderProps {
     images: string[];
 }
 
 export default function Slider({ images }: SliderProps) {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+
+    const onInit = useCallback((emblaApi: EmblaCarouselType) => {
+        setScrollSnaps(emblaApi.scrollSnapList());
+    }, []);
+
+    const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, []);
+
 
     useEffect(() => {
-        if (!images || images.length <= 1) {
-            return;
+        if (typeof window !== 'undefined' && emblaApi) {
+
+            onInit(emblaApi);
+            onSelect(emblaApi);
+
+            emblaApi.on('select', onSelect);
+
+            return () => {
+                emblaApi.off('select', onSelect);
+            };
         }
 
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        }, 5000);
+        return undefined;
 
-        return () => clearInterval(interval);
-    }, [images]);
-
-    useEffect(() => {
-        setCurrentImageIndex(0);
-    }, [images]);
+    }, [emblaApi, onInit, onSelect]);
 
 
-    const goToNextImage = () => {
-        if (!images || images.length === 0) return;
-        setCurrentImageIndex((prevIndex) =>
-            (prevIndex + 1) % images.length
-        );
-    };
+    const goToNextImage = useCallback(() => {
+        if (!emblaApi) return;
+        emblaApi.scrollNext();
+    }, [emblaApi]);
 
-    const goToPreviousImage = () => {
-        if (!images || images.length === 0) return;
-        setCurrentImageIndex((prevIndex) =>
-            (prevIndex - 1 + images.length) % images.length
-        );
-    };
+    const goToPreviousImage = useCallback(() => {
+        if (!emblaApi) return;
+        emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollTo = useCallback((index: number) => {
+        if (!emblaApi) return;
+        emblaApi.scrollTo(index);
+    }, [emblaApi]);
+
 
     if (!images || images.length === 0) {
         return <div>슬라이드 이미지가 없습니다.</div>;
     }
 
+
     return (
-        <div className="relative w-full h-[20rem] lg:h-[35rem] max-w-4xl mt-[2rem] overflow-hidden">
-            <Image
-                src={images[currentImageIndex]}
-                alt={`Slide ${currentImageIndex + 1}`}
-                fill={true}
-                objectFit="cover"
-            />
+        <div className="group relative w-full h-[20rem] lg:h-[35rem] max-w-4xl mt-[2rem] overflow-hidden" ref={emblaRef}>
+            <div className="flex h-full">
+                {images.map((image, index) => (
+                    <div className="relative h-full flex-[0_0_100%]" key={index}>
+                        <Image
+                            src={image}
+                            alt={`Slide ${index + 1}`}
+                            fill={true}
+                            objectFit="cover"
+                        />
+                    </div>
+                ))}
+            </div>
 
             {images.length > 1 && (
                 <>
                     <button
                         onClick={goToPreviousImage}
-                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 z-20"
+                        className="absolute px-[1rem] h-full left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white opacity-0 group-hover:opacity-100 hover:opacity-100 z-20 cursor-pointer transition-opacity duration-300"
                     >
                         {"<"}
                     </button>
                     <button
                         onClick={goToNextImage}
-                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 z-20"
+                        className="absolute px-[1rem] h-full right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white opacity-0 group-hover:opacity-100 hover:opacity-100 z-20 cursor-pointer transition-opacity duration-300"
                     >
                         {">"}
                     </button>
@@ -75,11 +103,11 @@ export default function Slider({ images }: SliderProps) {
 
             {images.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-                    {images.map((_, index) => (
+                    {scrollSnaps.map((_, index) => (
                         <button
                             key={index}
-                            className={`w-3 h-3 rounded-full ${index === currentImageIndex ? 'bg-black' : 'bg-gray-500'}`}
-                            onClick={() => setCurrentImageIndex(index)}
+                            className={`w-3 h-3 rounded-full ${index === selectedIndex ? 'bg-black' : 'bg-gray-500'}`}
+                            onClick={() => scrollTo(index)}
                         ></button>
                     ))}
                 </div>
