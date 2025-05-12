@@ -7,6 +7,13 @@ import chatbot from '@/public/images/slides/chatbot1.png'
 
 const projectsData = [
     {
+        href: "/trippy",
+        imageSrc: trippy,
+        title: "여행지 정보 공유 및 날씨 추천 플랫폼",
+        description: "한국관광공사 및 기상청 공공데이터를 활용하여 여행지 추천 및 후기를 공유할 수 있는 플랫폼",
+        date: "2024.04 ~ 2024.10"
+    },
+    {
         href: "/rosegold",
         imageSrc: rosemain, // 임포트한 이미지 변수 사용
         title: "숙박업소 관리 플랫폼",
@@ -14,11 +21,11 @@ const projectsData = [
         date: "2024.03 ~ 2024.12"
     },
     {
-        href: "/trippy",
-        imageSrc: trippy,
-        title: "여행지 정보 공유 및 날씨 추천 플랫폼",
-        description: "한국관광공사 및 기상청 공공데이터를 활용하여 여행지 추천 및 후기를 공유할 수 있는 플랫폼",
-        date: "2024.04 ~ 2024.10"
+        href: "/chatbot",
+        imageSrc: chatbot,
+        title: "숙박업소 객실 챗봇",
+        description: "LLM기반 호텔 객실별 AI 챗봇",
+        date: "2024.03 ~ 2024.12"
     },
     {
         href: "/spark",
@@ -34,13 +41,7 @@ const projectsData = [
         description: "인건비 부담이 되는 숙박업소를 위한 정해진 시간동안 무인으로 운영 가능하도록 관제해주는 플랫폼",
         date: "2024.12 ~ 2025.02"
     },
-    {
-        href: "/chatbot",
-        imageSrc: chatbot,
-        title: "숙박업소 객실 챗봇",
-        description: "LLM기반 호텔 객실별 AI 챗봇",
-        date: "2024.03 ~ 2024.12"
-    },
+
 ];
 
 export default function Project() {
