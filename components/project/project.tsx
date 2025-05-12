@@ -24,7 +24,7 @@ const projectsData = [
         href: "/chatbot",
         imageSrc: chatbot,
         title: "숙박업소 객실 챗봇",
-        description: "LLM기반 호텔 객실별 AI 챗봇",
+        description: "LLM기반 호텔 객실별 AI 챗봇 및 주문시스템을 바탕으로 객실 내에서도 편의시스템 제공해주는 플랫폼",
         date: "2024.03 ~ 2024.12"
     },
     {

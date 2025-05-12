@@ -135,8 +135,8 @@ export default function Chatbot() {
         <div className="flex flex-col pt-[2rem] mb-[10rem]">
             <Backbutton />
             <div className='mx-[1rem]'>
-                <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>실시간 숙박업 무인 관제 시스템</h1>
-                <h2 className='text-[1rem] md:text-[1.5rem]'>인건비 부담이 되는 숙박업소를 위한 정해진 시간동안 무인으로 운영 가능하도록 관제해주는 플랫폼</h2>
+                <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>숙박업소 객실 챗봇</h1>
+                <h2 className='text-[1rem] md:text-[1.5rem]'>LLM기반 호텔 객실별 AI 챗봇 및 주문시스템을 바탕으로 객실 내에서도 편의시스템 제공해주는 플랫폼</h2>
                 <span className='text-[0.8rem]'>개발환경: TYPESCRIPT | NEXT.JS | REACT-QUERY | TAILWIND</span>
             </div>
             <Slider images={sliderImages} />
