@@ -37,7 +37,7 @@ export default function DeatilSection({
 }: DetailSectionProps) {
     return (
         <div className="mt-[1rem] text-left flex flex-col mx-[1rem] lg:w-[56rem]">
-            <h1 className='text-[2rem] font-semibold'>[구현 내용]</h1>
+            <h1 className='text-[1.3rem] md:text-[2rem] font-semibold'>구현 내용</h1>
             <div>
                 {projectsData.map((project, index) => {
                     const isOpen = openProjectIndices.has(index);
@@ -47,7 +47,7 @@ export default function DeatilSection({
                     return (
                         <div key={index} className='my-[0.5rem]'>
                             <h2
-                                className='text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
+                                className='text-[1rem] md:text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
                                 onClick={() => handleProjectTitleClick(index)}
                                 aria-expanded={isOpen}
                             >
@@ -63,7 +63,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
                                     {project.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {detail}
@@ -75,7 +75,7 @@ export default function DeatilSection({
                     );
                 })}
             </div>
-            <h1 className='text-[2rem] font-semibold'>[기술 경험]</h1>
+            <h1 className='text-[1.3rem] md:text-[2rem] font-semibold'>기술 경험</h1>
             <div>
                 {skillsData.map((skill, index) => {
                     const isOpen = openSkillIndices.has(index);
@@ -85,7 +85,7 @@ export default function DeatilSection({
                     return (
                         <div key={index} className='my-[0.5rem]'>
                             <h2
-                                className='text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
+                                className='text-[1rem] md:text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
                                 onClick={() => handleSkillTitleClick(index)}
                                 aria-expanded={isOpen}
                             >
@@ -101,7 +101,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
                                     {skill.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {detail}
@@ -113,7 +113,7 @@ export default function DeatilSection({
                     );
                 })}
             </div>
-            <h1 className='text-[2rem] font-semibold'>[트러블 슈팅]</h1>
+            <h1 className='text-[1.3rem] md:text-[2rem] font-semibold'>트러블 슈팅</h1>
             <div>
                 {trubleData.map((trubleItem, index) => {
                     const isOpen = openTrubleIndices.has(index);
@@ -122,7 +122,7 @@ export default function DeatilSection({
                     return (
                         <div key={index} className='my-[0.5rem]'>
                             <h2
-                                className='text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
+                                className='text-[1rem] md:text-[1.2rem] font-medium w-fit cursor-pointer px-[0.5rem] hover:bg-gray-200 rounded-[0.5rem]'
                                 onClick={() => handleTrubleTitleClick(index)}
                                 aria-expanded={isOpen}
                             >
@@ -138,7 +138,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
                                     {trubleItem.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {renderDetailWithBoldKeyword(detail)}
