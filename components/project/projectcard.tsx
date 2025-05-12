@@ -22,7 +22,7 @@ export default function ProjectCard({ href, imageSrc, title, description, date }
                 overflow-hidden                       
                 flex flex-col                         
             ">
-                <div className='w-full relative border-b border-black'>
+                <div className='w-full relative border-b border-gray-300'>
                     <Image
                         className='top-0 left-0 w-full h-[17rem] object-cover block rounded-t-md'
                         src={imageSrc}
