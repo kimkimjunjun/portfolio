@@ -13,7 +13,7 @@ export default function Experience() {
                     <div className="text-gray-500 flex flex-col grow">
                         <span className="mt-[0.5rem]">■ 업무 내용</span>
                         <span>1. 숙박업소 매니지먼트</span>
-                        <span className="ml-[1rem] text-[0.9rem] md:text-[1.2rem]">- 실시간 직원들의 원활한 투숙객 관리 및 요청사항 관리 시스템 개발</span>
+                        <span className="ml-[1rem] text-[0.9rem] md:text-[1.2rem]">- 직원들의 원활한 투숙객 관리 및 실시간 요청사항 관리 시스템 개발</span>
                         <span>2. 숙박업소 각 객실별 챗봇</span>
                         <span className="ml-[1rem] text-[0.9rem] md:text-[1.2rem]">- LLM을 활용한 인공지능 AI 챗봇 및 객실 내 주문시스템 구현</span>
                         <span>3. 숙박업소 무인 관제</span>
