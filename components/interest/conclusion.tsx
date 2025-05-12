@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Conclusion() {
     return (
-        <div className="lg:flex mx-[2rem] pt-[2rem] lg:pt-[5rem] h-screen items-center lg:mb-0">
+        <div className="lg:flex mx-[2rem] pt-[2rem] lg:pt-[5rem] h-[40rem] md:h-screen items-center lg:mb-0">
             <div className="flex flex-col lg:ml-[3rem] h-fit">
                 <h1 className="text-[2rem] lg:text-[4rem] font-bold">THANK YOU</h1>
                 <div className="flex flex-col text-[0.6rem] lg:text-[1rem] font-medium">
@@ -13,11 +13,11 @@ export default function Conclusion() {
                 <Link
                     href="https://github.com/kimkimjunjun"
                     className="
-                    relative inline-block w-fit text-[2rem] font-semibold my-[2rem] border-b border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
+                    relative inline-block w-fit text-[2rem] font-semibold my-[2rem] border-b-2 border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
                 "
                 >
-                    <span className="relative z-10">
-                        Github
+                    <span className="relative z-10 px-[1rem]">
+                        GitHub
                     </span>
                 </Link>
 

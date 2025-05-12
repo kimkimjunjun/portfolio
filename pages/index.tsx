@@ -76,7 +76,7 @@ export default function Home() {
     sectionIds.forEach(id => {
       const element = document.getElementById(id);
       if (element) {
-        observer.observe(element); // 
+        observer.observe(element);
       }
     });
 
