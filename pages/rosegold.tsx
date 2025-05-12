@@ -137,7 +137,7 @@ export default function Rosegold() {
     };
 
     return (
-        <div className="flex flex-col pt-[2rem] mb-[10rem]">
+        <div className="flex flex-col pt-[1rem] md:pt-[2rem] mb-[10rem]">
             <Backbutton />
             <div className='mx-[1rem]'>
                 <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>숙박업소 관리 플랫폼 - 로즈골드</h1>

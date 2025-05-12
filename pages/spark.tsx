@@ -138,7 +138,7 @@ export default function Spark() {
     };
 
     return (
-        <div className="flex flex-col pt-[2rem] mb-[10rem]">
+        <div className="flex flex-col pt-[1rem] md:pt-[2rem] mb-[10rem]">
             <Backbutton />
             <div className='mx-[1rem]'>
                 <h1 className='text-[1.5rem] md:text-[3.5rem] font-bold'>한양대 ERICA 디자인대학 졸업전시회</h1>
