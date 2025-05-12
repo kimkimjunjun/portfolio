@@ -6,7 +6,7 @@ interface TimeProps {
 
 export default function TypingComponent({ onTypingComplete }: TimeProps) {
     const [word, setWord] = useState('');
-    let sentence = "안녕하세요\n 프론트엔드 개발자 김준휘입니다.";
+    let sentence = "안녕하세요\n 프론트엔드 개발자 김준휘입니다";
     const currentIndex = useRef(0);
 
     useEffect(() => {

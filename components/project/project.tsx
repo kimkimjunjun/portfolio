@@ -3,6 +3,7 @@ import trippy from '@/public/images/trippy.png';
 import spark from '@/public/images/spark.png';
 import muin from '@/public/images/muin.png';
 import ProjectCard from './projectcard';
+import chatbot from '@/public/images/slides/chatbot1.png'
 
 const projectsData = [
     {
@@ -32,6 +33,13 @@ const projectsData = [
         title: "실시간 숙박업 무인 관제 시스템",
         description: "인건비 부담이 되는 숙박업소를 위한 정해진 시간동안 무인으로 운영 가능하도록 관제해주는 플랫폼",
         date: "2024.12 ~ 2025.02"
+    },
+    {
+        href: "/chatbot",
+        imageSrc: chatbot,
+        title: "숙박업소 객실 챗봇",
+        description: "LLM기반 호텔 객실별 AI 챗봇",
+        date: "2024.03 ~ 2024.12"
     },
 ];
 
