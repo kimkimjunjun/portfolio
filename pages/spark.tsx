@@ -6,6 +6,7 @@ import DeatilSection from '@/components/project/detailsection';
 const sliderImages = [
     '/images/slides/spark1.png',
     '/images/slides/spark2.png',
+    '/images/slides/spark3.png',
 ];
 
 const projectsData = [
