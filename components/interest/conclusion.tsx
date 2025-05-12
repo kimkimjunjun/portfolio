@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Conclusion() {
     return (
-        <div className="lg:flex mx-[2rem] pt-[2rem] lg:pt-[5rem] h-[40rem] md:h-screen items-center lg:mb-0">
+        <div className="lg:flex mx-[2rem] pt-[2rem] lg:pt-[5rem] h-[50rem] md:h-screen items-center lg:mb-0">
             <div className="flex flex-col lg:ml-[3rem] h-fit">
                 <h1 className="text-[2rem] lg:text-[4rem] font-bold">THANK YOU</h1>
                 <div className="flex flex-col text-[0.6rem] lg:text-[1rem] font-medium">
