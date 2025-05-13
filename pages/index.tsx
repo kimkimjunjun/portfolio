@@ -8,6 +8,7 @@ import Skill from "@/components/skill/skill";
 import Project from "@/components/project/project";
 import Conclusion from "@/components/interest/conclusion";
 import Cookies from 'js-cookie';
+import Upbutton from "@/components/upbutton";
 
 
 const sectionIds = [
@@ -93,6 +94,7 @@ export default function Home() {
           <SideBar activeSectionId={activeSectionId} />
 
           <div className="w-full ml-0 lg:ml-[15rem] mt-[4rem] lg:mt-0">
+
             <div id="about-me" className="my-[5rem] md:my-[10rem]">
               <Introduction />
             </div>
@@ -122,6 +124,7 @@ export default function Home() {
               <Conclusion />
             </div>
           </div>
+          <Upbutton />
         </div>
       )}
     </div>
