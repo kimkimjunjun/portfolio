@@ -10,7 +10,7 @@ export default function Experience() {
                 <div className="flex flex-col text-[1.2rem]">
                     <span className="text-[1.2rem] lg:text-[1.5rem]">LLM을 활용한 숙박업소 관리 플랫폼</span>
                     <span>근무 형태 | 프리랜서</span>
-                    <div className="text-gray-500 flex flex-col grow">
+                    <div className="text-gray-500 flex flex-col grow leading-relaxed">
                         <span className="mt-[0.5rem]">■ 업무 내용</span>
                         <span>1. 숙박업소 매니지먼트</span>
                         <span className="ml-[1rem] text-[0.9rem] md:text-[1.2rem]">- 직원들의 원활한 투숙객 관리 및 실시간 요청사항 관리 시스템 개발</span>

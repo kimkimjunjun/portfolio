@@ -1,6 +1,6 @@
 import rosemain from '@/public/images/rosemain.png';
 import trippy from '@/public/images/trippy.png';
-import spark from '@/public/images/spark.png';
+import spark from '@/public/images/slides/spark3.png';
 import muin from '@/public/images/muin.png';
 import ProjectCard from './projectcard';
 import chatbot from '@/public/images/slides/chatbot1.png'

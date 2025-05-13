@@ -63,7 +63,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem] leading-relaxed'>
                                     {project.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {detail}
@@ -101,7 +101,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem] leading-relaxed'>
                                     {skill.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {detail}
@@ -138,7 +138,7 @@ export default function DeatilSection({
                                         ${isOpen ? 'pt-2' : 'pt-0'}
                                     `}
                             >
-                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem]'>
+                                <ul className='text-[0.8rem] md:text-[1rem] px-[1rem] leading-relaxed'>
                                     {trubleItem.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} >
                                             {renderDetailWithBoldKeyword(detail)}
