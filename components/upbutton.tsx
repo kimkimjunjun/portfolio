@@ -7,7 +7,6 @@ export default function Upbutton() {
         if (typeof window === 'undefined') return;
 
         const scrollTop = window.scrollY;
-
         const scrollThreshold = 100;
 
         if (scrollTop > scrollThreshold) {
@@ -22,7 +21,6 @@ export default function Upbutton() {
         if (typeof window === 'undefined') return;
 
         window.addEventListener('scroll', handleScroll);
-
         handleScroll();
 
         return () => {
@@ -42,14 +40,11 @@ export default function Upbutton() {
 
     return (
         <div className={`
-            fixed right-5 bottom-5 z-20 group flex items-center
-            transition-opacity duration-300 ease-in-out /* 투명도 변화에 애니메이션 적용 */
-            ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} /* isVisible 상태에 따라 투명도 및 이벤트 활성화/비활성화 */
+            fixed right-5 bottom-5 z-20 group flex items-center transition-opacity duration-300 ease-in-out 
+            ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} 
         `}>
             <span className="
-                text-white font-semibold text-sm mr-2 bg-gray-600 p-[0.5rem] rounded-[0.8rem]
-                opacity-0 transition-opacity duration-300 /* 초기 투명, 호버 시 애니메이션 */
-                group-hover:opacity-100
+                text-white font-semibold text-sm mr-2 bg-gray-600 p-[0.5rem] rounded-[0.8rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100
             ">
                 위로가기
             </span>
