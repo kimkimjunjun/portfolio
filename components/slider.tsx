@@ -94,7 +94,7 @@ export default function Slider({ images }: SliderProps) {
             )}
 
             {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 opacity-0 group-hover:opacity-100 hover:opacity-100 transition-opacity duration-300 z-20">
                     {scrollSnaps.map((_, index) => (
                         <button
                             key={index}
