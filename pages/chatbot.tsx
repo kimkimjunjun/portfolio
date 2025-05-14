@@ -2,6 +2,7 @@ import Slider from '@/components/slider';
 import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
 import DeatilSection from '@/components/project/detailsection';
+// import EmailForm from '@/components/emailform';
 
 const sliderImages = [
     '/images/slides/chatbot.png',
@@ -151,6 +152,8 @@ export default function Chatbot() {
                 openTrubleIndices={openTrubleIndices}
                 handleTrubleTitleClick={handleTrubleTitleClick}
                 renderDetailWithBoldKeyword={renderDetailWithBoldKeyword} />
+            {/* <EmailForm /> */}
+
         </div>
     );
 }

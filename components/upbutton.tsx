@@ -76,7 +76,6 @@ export default function Upbutton() {
                 </button>
             </div> */}
 
-
         </div>
     )
 }
