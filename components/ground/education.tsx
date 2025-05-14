@@ -5,11 +5,11 @@ export default function Education() {
             <div>
                 <div className="2xl:w-[70rem] xl:w-[61rem] flex items-center mt-[2rem]">
                     <span className="text-[1rem] lg:text-[2rem] font-bold">HANYANG UNIVERSITY ERICA</span>
-                    <span className="text-[0.5rem] lg:text-[1.2rem] ml-auto text-gray-400">2021.03 ~ 2025.02</span>
+                    <span className="text-[0.5rem] lg:text-[1.2rem] ml-auto text-gray-400">2021.03 ~ 2025.08</span>
                 </div>
                 <div className="flex flex-col">
                     <span className="text-[1rem] lg:text-[1.5rem]">소프트웨어융합대학 컴퓨터학부</span>
-                    <span className="text-[1rem] lg:text-[1.5rem] text-gray-500">졸업</span>
+                    <span className="text-[1rem] lg:text-[1.5rem] text-gray-500">졸업 예정정</span>
                 </div>
                 <div className="2xl:w-[70rem] xl:w-[61rem] flex items-center mt-[2rem]">
                     <span className="text-[1rem] lg:text-[2rem] font-bold">KYUNGHEE HIGH SCHOOL</span>
