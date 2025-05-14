@@ -124,6 +124,7 @@ export default function Home() {
               <Conclusion />
             </div>
           </div>
+          {/* absolute 적용 위로가기 버튼 */}
           <Upbutton />
         </div>
       )}
