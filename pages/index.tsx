@@ -95,27 +95,27 @@ export default function Home() {
 
           <div className="w-full ml-0 lg:ml-[15rem] mt-[4rem] lg:mt-0">
 
-            <div id="about-me" className="my-[5rem] md:my-[10rem]">
+            <div id="about-me" className="my-[5rem] md:my-[9rem]">
               <Introduction />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="education" className="my-[5rem] md:my-[10rem]">
+            <div id="education" className="my-[5rem] md:my-[9rem]">
               <Education />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="experience" className="my-[5rem] md:my-[10rem]">
+            <div id="experience" className="my-[5rem] md:my-[9rem]">
               <Experience />
             </div>
             <hr className="mx-[1rem]" />
 
-            <div id="skill" className="my-[5rem] md:my-[10rem]">
+            <div id="skill" className="my-[5rem] md:my-[9rem]">
               <Skill />
             </div>
             <hr className="mx-[1rem] " />
 
-            <div id="project" className="my-[5rem] md:my-[10rem]">
+            <div id="project" className="my-[5rem] md:my-[9rem]">
               <Project />
             </div>
             <hr className="mx-[1rem]" />
