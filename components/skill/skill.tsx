@@ -13,6 +13,7 @@ export default function Skill() {
             <span className="text-[0.7rem] md:text-[1.2rem] leading-relaxed">
                 - Axios 사용하여 비동기 통신방법 이해 및 코드 활용 가능<br />
                 - props, context, Redux 이해 및 코드 활용 가능<br />
+                - useMemo 및 useCallback 이해 및 코드 활용 가능<br />
                 - recoil 활용한 전역변수처리 이해 및 코드 활용 가능<br />
                 - localStorage, sessionStorage, js-cookie 기반 데이터 저장 및 활용 가능<br />
                 - TailWind, Styled-components 기반 반응형 웹 UI/UX 최적화<br />
