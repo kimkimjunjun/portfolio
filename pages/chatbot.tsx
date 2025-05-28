@@ -133,7 +133,7 @@ export default function Chatbot() {
     };
 
     return (
-        <div className="flex flex-col pt-[1rem] md:pt-[2rem] mb-[10rem]">
+        <div className="flex flex-col pt-[1rem] md:pt-[2rem] mb-[10rem] items-center">
             <Backbutton />
             <div className='mx-[1rem]'>
                 <h1 className='text-[1.5rem] md:text-[4rem] font-bold'>숙박업소 객실 챗봇</h1>
