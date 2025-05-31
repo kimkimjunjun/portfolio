@@ -10,9 +10,9 @@ export default function Document() {
         {/* <meta name="description" content="My PORTFOLIO" /> */}
       </Head>
       <body className="antialiased">
+        <Analytics />
         <Main />
         <NextScript />
-        <Analytics />
       </body>
     </Html>
   );
