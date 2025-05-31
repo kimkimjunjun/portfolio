@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { Analytics } from "@vercel/analytics/next"
+
 
 export default function Document() {
   return (
@@ -10,7 +10,7 @@ export default function Document() {
         {/* <meta name="description" content="My PORTFOLIO" /> */}
       </Head>
       <body className="antialiased">
-        <Analytics />
+
         <Main />
         <NextScript />
       </body>

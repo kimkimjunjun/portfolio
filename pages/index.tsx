@@ -9,7 +9,7 @@ import Project from "@/components/project/project";
 import Conclusion from "@/components/interest/conclusion";
 import Cookies from 'js-cookie';
 import Upbutton from "@/components/upbutton";
-
+import { Analytics } from "@vercel/analytics/next"
 
 const sectionIds = [
   "about-me",
@@ -85,6 +85,7 @@ export default function Home() {
 
   return (
     <div>
+      <Analytics />
       {showFirstTag ? (
         <div className={`${isClicked ? "fadeOut" : ""}  w-full h-screen bg-black flex`}>
           <TypingComponent onTypingComplete={handleTypingComplete} />
