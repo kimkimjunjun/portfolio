@@ -128,7 +128,7 @@ export default function Home() {
             </section>
             <hr className="mx-[1rem]" />
 
-            <section id="conclusion" className="backgroundimg pt-[2rem] md:pt-[5rem]">
+            <section id="conclusion" className="backgroundimg pt-[4rem] md:pt-[5rem]">
               <Conclusion />
             </section>
           </main>
