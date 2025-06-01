@@ -85,7 +85,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <>
       <Head>
         <title>개발자 김준휘의 포트폴리오</title>
         <meta property="og:title" content="개발자 김준휘의 포트폴리오" />
@@ -136,6 +136,6 @@ export default function Home() {
           <Upbutton />
         </div>
       )}
-    </div>
+    </>
   );
 }
