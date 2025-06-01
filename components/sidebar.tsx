@@ -39,7 +39,7 @@ export default function SideBar({ activeSectionId }: SideBarProps) {
     };
 
     return (
-        <div className="
+        <aside className="
             fixed top-0 left-0 w-full h-auto flex flex-row items-center justify-center p-4 border-b border-gray-300 shadow-md bg-amber-100 z-30
             lg:fixed lg:top-auto lg:left-auto lg:h-screen lg:w-[15rem] lg:flex-col lg:border-r lg:border-gray-300 lg:shadow-2xl lg:p-0 lg:items-stretch lg:justify-start lg:z-auto lg:bg-amber-100
         ">
@@ -62,6 +62,6 @@ export default function SideBar({ activeSectionId }: SideBarProps) {
                     </span>
                 ))}
             </div>
-        </div>
+        </aside>
     );
 }

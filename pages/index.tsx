@@ -93,38 +93,36 @@ export default function Home() {
       ) : (
         <div className={`${shouldApplyFadeIn ? "fadeIn" : ""} flex h-full w-full flex-col lg:flex-row`}>
           <SideBar activeSectionId={activeSectionId} />
-
-          <div className="w-full ml-0 lg:ml-[15rem] mt-[4rem] lg:mt-0">
-
-            <div id="about-me" className="my-[5rem] md:my-[9rem]">
+          <main className="flex-grow w-full mt-[4rem] lg:mt-0 lg:ml-[15rem]">
+            <section id="about-me" className="my-[5rem] md:my-[9rem]">
               <Introduction />
-            </div>
+            </section>
             <hr className="mx-[1rem]" />
 
-            <div id="education" className="my-[5rem] md:my-[9rem]">
+            <section id="education" className="my-[5rem] md:my-[9rem]">
               <Education />
-            </div>
+            </section>
             <hr className="mx-[1rem]" />
 
-            <div id="experience" className="my-[5rem] md:my-[9rem]">
+            <section id="experience" className="my-[5rem] md:my-[9rem]">
               <Experience />
-            </div>
+            </section>
             <hr className="mx-[1rem]" />
 
-            <div id="skill" className="my-[5rem] md:my-[9rem]">
+            <section id="skill" className="my-[5rem] md:my-[9rem]">
               <Skill />
-            </div>
+            </section>
             <hr className="mx-[1rem] " />
 
-            <div id="project" className="my-[5rem] md:my-[9rem]">
+            <section id="project" className="my-[5rem] md:my-[9rem]">
               <Project />
-            </div>
+            </section>
             <hr className="mx-[1rem]" />
 
-            <div id="conclusion" className="backgroundimg pt-[5rem]">
+            <section id="conclusion" className="backgroundimg pt-[5rem]">
               <Conclusion />
-            </div>
-          </div>
+            </section>
+          </main>
           {/* absolute 적용 위로가기 버튼 */}
           <Upbutton />
         </div>
