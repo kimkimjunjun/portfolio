@@ -10,6 +10,7 @@ import Conclusion from "@/components/interest/conclusion";
 import Cookies from 'js-cookie';
 import Upbutton from "@/components/upbutton";
 import { Analytics } from "@vercel/analytics/next"
+import Head from "next/head";
 
 const sectionIds = [
   "about-me",
@@ -25,7 +26,7 @@ export default function Home() {
   const [isClicked, setIsClicked] = useState(false);
   const [shouldApplyFadeIn, setShouldApplyFadeIn] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
-
+  const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
   useEffect(() => {
     const visited = Cookies.get('visited');
@@ -85,6 +86,14 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+        <title>개발자 김준휘의 포트폴리오</title>
+        <meta property="og:title" content="개발자 김준휘의 포트폴리오" />
+        <meta property="og:description" content="개발자 김준휘의 기술 스택, 프로젝트 경험, 교육 과정 등을 담은 온라인 포트폴리오입니다." />
+        <meta property="og:url" content="https://junhwikim.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta name="google-site-verification" content={googleSiteVerification} />
+      </Head>
       <Analytics />
       {showFirstTag ? (
         <div className={`${isClicked ? "fadeOut" : ""}  w-full h-screen bg-black flex`}>
