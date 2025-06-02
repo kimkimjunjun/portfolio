@@ -18,7 +18,7 @@ export default function ProjectCard({ href, imageSrc, title, description, date }
                 min-w-[20rem]                             
                 border border-gray-300 rounded-[4px]
                 shadow-md                             
-                hover:opacity-80 hover:-translate-y-2 duration-300 
+                hover:opacity-80 project hover:-translate-y-2 duration-300 
                 overflow-hidden                       
                 flex flex-col                         
             ">
