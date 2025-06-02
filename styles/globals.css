@@ -95,3 +95,45 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.underline-animation {
+  position: relative;
+  /* ::after 의사 요소의 위치 기준점 */
+  display: inline-block;
+  /* 텍스트 너비만큼만 영역 차지 */
+  /* 기본 텍스트 밑줄이 보이지 않도록 할 경우 주석 해제 */
+  /* text-decoration: none; */
+}
+
+/* 밑줄 역할을 할 ::after 의사 요소 스타일 */
+.underline-animation::after {
+  content: '';
+  /* 의사 요소는 content 속성이 필수 */
+  position: absolute;
+  left: 0;
+  /* 텍스트의 왼쪽 끝에서 시작 */
+  bottom: 0;
+  /* 밑줄의 세로 위치 조정 (텍스트 아래에 위치) */
+  width: 0%;
+  /* 초기 너비 0% (숨겨진 상태) */
+  height: 4px;
+  /* 밑줄 두께 */
+  background-color: #FFECB3;
+  /* 텍스트와 동일한 색상으로 밑줄 표시 */
+  /* background-color: #000; */
+  /* 특정 색상으로 지정할 수도 있습니다. */
+
+  /* 애니메이션 적용 */
+  animation: drawUnderline 1.0s ease-out forwards;
+  /* drawUnderline 애니메이션을 1초 동안 ease-out 타이밍 함수로 실행하고 종료 상태 유지 */
+  animation-delay: 0.5s;
+  /* 컴포넌트가 나타난 후 0.5초 대기 후 애니메이션 시작 */
+}
+
+/* 밑줄이 그려지는 애니메이션 정의 */
+@keyframes drawUnderline {
+  to {
+    width: 100%;
+    /* 애니메이션 종료 시 너비 100% (텍스트 전체 너비) */
+  }
+}
