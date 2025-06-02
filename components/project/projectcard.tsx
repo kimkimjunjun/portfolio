@@ -19,6 +19,7 @@ export default function ProjectCard({ href, imageSrc, title, description, date }
                 border border-gray-300 rounded-[4px]
                 shadow-md                             
                 project hover:-translate-y-2 duration-300 
+                hover:scale-105
                 overflow-hidden                       
                 flex flex-col                         
             ">
