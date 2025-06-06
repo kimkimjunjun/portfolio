@@ -106,26 +106,31 @@ export default function Home() {
             <section id="about-me" className="my-[5rem] md:my-[9rem]">
               <Introduction />
             </section>
+
             <hr className="mx-[1rem]" />
 
             <section id="education" className="my-[5rem] md:my-[9rem]">
               <Education />
             </section>
+
             <hr className="mx-[1rem]" />
 
             <section id="experience" className="my-[5rem] md:my-[9rem]">
               <Experience />
             </section>
+
             <hr className="mx-[1rem]" />
 
             <section id="skill" className="my-[5rem] md:my-[9rem]">
               <Skill />
             </section>
+
             <hr className="mx-[1rem] " />
 
             <section id="project" className="my-[5rem] md:my-[9rem]">
               <Project />
             </section>
+
             <hr className="mx-[1rem]" />
 
             <section id="conclusion" className="backgroundimg pt-[4rem] md:pt-[5rem]">
