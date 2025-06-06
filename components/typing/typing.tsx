@@ -20,7 +20,7 @@ export default function TypingComponent({ onTypingComplete }: TimeProps) {
                 clearInterval(timerId);
                 onTypingComplete(); // 모든 글자가 나왔을 때 부모 컴포넌트에 알림
             }
-        }, 60);
+        }, 100);
 
         return () => clearInterval(timerId);
     }, [onTypingComplete]);
