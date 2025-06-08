@@ -29,11 +29,12 @@ export default function ProjectCard({ href, imageSrc, videoSrc, title, descripti
                 className="
                 min-w-[20rem]
                 border border-gray-300 rounded-[4px]
+                bg-white
                 shadow-md
                 project hover:-translate-y-2 duration-300
                 overflow-hidden
                 flex flex-col
-                cursor-pointer {/* 링크처럼 보이도록 커서 스타일 추가 */}
+                cursor-pointer 
             "
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
