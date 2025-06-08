@@ -2,6 +2,7 @@ import Slider from '@/components/slider';
 import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
 import DeatilSection from '@/components/project/detailsection';
+import Operational from '@/components/experience/operational';
 
 const sliderImages = [
     '/images/muin.png',
@@ -79,12 +80,31 @@ const trubleData = [
     },
 ];
 
+const experienceData = [
+    {
+        title: "▶ 실시간 화상통화 연결",
+        details: [
+            "- Agora SDK를 사용하여 영상통화를 구현하여 통화 시간만큼 비용적인 부분이 소모",
+            "- OpenCV 라이브러리를 사용하여 카메라의 rtsp값을 바탕으로 프레임별로 쪼개어 일정 프레임의 움직임이 감지될 시에 영상통화가 자동으로 구현되도록 움직임 감지처리로 불필요한 비용 감소하도록 구현함"
+        ]
+    },
+    {
+        title: "▶ 손님과의 의사소통 문제",
+        details: [
+            "- 실시간으로 모텔에 손님이 들어왔을 때, 마이크로 체크인은 테블릿을 통하여 진행한다고 말했지만 무시하고 카운터에만 있는 손님들이 생김",
+            "- 해당 모텔에 사장님이 안계실 때, 카운터 앞에 배너를 설치하여 자연스럽게 테블릿을 향하도록 유도함",
+            "- 실제로 배너를 설치한 결과 모든 손님들이 테블릿을 통하여 체크인을 진행함"
+        ]
+    },
+];
+
 const boldKeywords = ["발생문제:", "발생원인:", "해결방법:", "결과:", "배운점:"];
 
 export default function Moonlight() {
     const [openProjectIndices, setOpenProjectIndices] = useState<Set<number>>(new Set());
     const [openSkillIndices, setOpenSkillIndices] = useState<Set<number>>(new Set());
     const [openTrubleIndices, setOpenTrubleIndices] = useState<Set<number>>(new Set());
+    const [openExperienceIndices, setOpenExperienceIndices] = useState<Set<number>>(new Set());
 
     const handleProjectTitleClick = (index: number) => {
         const newOpenIndices = new Set(openProjectIndices);
@@ -115,6 +135,16 @@ export default function Moonlight() {
             newOpenIndices.add(index);
         }
         setOpenTrubleIndices(newOpenIndices);
+    };
+
+    const handleExperienceTitleClick = (index: number) => {
+        const newOpenIndices = new Set(openExperienceIndices);
+        if (newOpenIndices.has(index)) {
+            newOpenIndices.delete(index);
+        } else {
+            newOpenIndices.add(index);
+        }
+        setOpenExperienceIndices(newOpenIndices);
     };
 
     const renderDetailWithBoldKeyword = (detail: string) => {
@@ -152,6 +182,10 @@ export default function Moonlight() {
                 openTrubleIndices={openTrubleIndices}
                 handleTrubleTitleClick={handleTrubleTitleClick}
                 renderDetailWithBoldKeyword={renderDetailWithBoldKeyword} />
+            <Operational
+                experienceData={experienceData}
+                openExperienceIndices={openExperienceIndices}
+                handleExperienceTitleClick={handleExperienceTitleClick} />
         </div>
     );
 }

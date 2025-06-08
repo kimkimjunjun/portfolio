@@ -2,6 +2,7 @@ import Slider from '@/components/slider';
 import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
 import DeatilSection from '@/components/project/detailsection';
+import Operational from '@/components/experience/operational';
 // import EmailForm from '@/components/emailform';
 
 const sliderImages = [
@@ -79,12 +80,24 @@ const trubleData = [
     },
 ];
 
+const experienceData = [
+    {
+        title: "▶ 숙박한 손님들의 챗봇서비스 이용 저조",
+        details: [
+            "- 실제 서비스를 숙박업소에 배포했지만 숙박하는 손님들이 챗봇서비스에 대해 관심이 없고 사용률도 낮은 문제가 생김",
+            "- 챗봇내용에 손님들이 자주 묻는 질문 5가지를 추려서 첫 화면에 보이도록 구현",
+            "- 실제로 자주 묻는 질문을 추가한 이후에 챗봇서비스의 이용률이 폭발적으로 증가하는 결과를 도출함"
+        ]
+    },
+];
+
 const boldKeywords = ["발생문제:", "발생원인:", "해결방법:", "결과:", "배운점:"];
 
 export default function Chatbot() {
     const [openProjectIndices, setOpenProjectIndices] = useState<Set<number>>(new Set());
     const [openSkillIndices, setOpenSkillIndices] = useState<Set<number>>(new Set());
     const [openTrubleIndices, setOpenTrubleIndices] = useState<Set<number>>(new Set());
+    const [openExperienceIndices, setOpenExperienceIndices] = useState<Set<number>>(new Set());
 
     const handleProjectTitleClick = (index: number) => {
         const newOpenIndices = new Set(openProjectIndices);
@@ -115,6 +128,16 @@ export default function Chatbot() {
             newOpenIndices.add(index);
         }
         setOpenTrubleIndices(newOpenIndices);
+    };
+
+    const handleExperienceTitleClick = (index: number) => {
+        const newOpenIndices = new Set(openExperienceIndices);
+        if (newOpenIndices.has(index)) {
+            newOpenIndices.delete(index);
+        } else {
+            newOpenIndices.add(index);
+        }
+        setOpenExperienceIndices(newOpenIndices);
     };
 
     const renderDetailWithBoldKeyword = (detail: string) => {
@@ -152,7 +175,10 @@ export default function Chatbot() {
                 openTrubleIndices={openTrubleIndices}
                 handleTrubleTitleClick={handleTrubleTitleClick}
                 renderDetailWithBoldKeyword={renderDetailWithBoldKeyword} />
-            {/* <EmailForm /> */}
+            <Operational
+                experienceData={experienceData}
+                openExperienceIndices={openExperienceIndices}
+                handleExperienceTitleClick={handleExperienceTitleClick} />
 
         </div>
     );
