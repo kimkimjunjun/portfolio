@@ -2,32 +2,62 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
+import { useState } from 'react';
 
 interface ProjectCardProps {
     href: string;
     imageSrc: string | StaticImageData;
+    videoSrc?: string;
     title: string;
     description: string;
     date: string;
 }
 
-export default function ProjectCard({ href, imageSrc, title, description, date }: ProjectCardProps) {
+export default function ProjectCard({ href, imageSrc, videoSrc, title, description, date }: ProjectCardProps) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
     return (
-        <Link href={href} passHref>
-            <div className="
-                min-w-[20rem]                             
+        <Link href={href} passHref legacyBehavior>
+            <div
+                className="
+                min-w-[20rem]
                 border border-gray-300 rounded-[4px]
-                shadow-md                             
-                project hover:-translate-y-2 duration-300 
-                overflow-hidden                       
-                flex flex-col                         
-            ">
+                shadow-md
+                project hover:-translate-y-2 duration-300
+                overflow-hidden
+                flex flex-col
+                cursor-pointer {/* 링크처럼 보이도록 커서 스타일 추가 */}
+            "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
                 <div className='w-full relative border-b border-gray-300'>
-                    <Image
-                        className='top-0 left-0 w-full h-[17rem] object-cover block rounded-t-md'
-                        src={imageSrc}
-                        alt={`${title} 이미지`}
-                    />
+                    {isHovered && videoSrc ? (
+                        <video
+                            className='top-0 left-0 w-full h-[17rem] object-cover block rounded-t-md'
+                            src={videoSrc}
+                            loop
+                            muted
+                            playsInline
+                            autoPlay
+                        />
+                    ) : (
+                        <Image
+                            className='top-0 left-0 w-full h-[17rem] object-cover block rounded-t-md'
+                            src={imageSrc}
+                            alt={`${title} 이미지`}
+                            width={320}
+                            height={272}
+                            priority={!isHovered}
+                        />
+                    )}
                 </div>
 
                 <div className={`p-4 flex-1 bg-white`}>

@@ -9,13 +9,15 @@ const projectsData = [
     {
         href: "/trippy",
         imageSrc: trippy,
+        videoSrc: "",
         title: "여행지 정보 공유 및 날씨 추천 플랫폼",
         description: "한국관광공사 및 기상청 공공데이터를 활용하여 여행지 추천 및 후기를 공유할 수 있는 플랫폼",
         date: "2024.04 ~ 2024.10"
     },
     {
         href: "/rosegold",
-        imageSrc: rosemain, // 임포트한 이미지 변수 사용
+        imageSrc: rosemain,
+        videoSrc: "/videos/rosegold-preview.mp4",
         title: "숙박업소 관리 플랫폼",
         description: "LLM을 활용한 고객 대응 자동화 및 수많은 객실들을 간편하게 관리하는 플랫폼",
         date: "2024.03 ~ 2024.12"
@@ -23,6 +25,7 @@ const projectsData = [
     {
         href: "/chatbot",
         imageSrc: chatbot,
+        videoSrc: "/videos/chatbot-preview.mp4",
         title: "숙박업소 객실 챗봇",
         description: "LLM기반 호텔 객실별 AI 챗봇 및 주문시스템을 바탕으로 객실 내에서도 편의시스템 제공해주는 플랫폼",
         date: "2024.03 ~ 2024.12"
@@ -30,6 +33,7 @@ const projectsData = [
     {
         href: "/spark",
         imageSrc: spark,
+        videoSrc: "",
         title: "한양대 ERICA 디자인대학 졸업전시회",
         description: "한양대 ERICA 디자인대학 학생들의 졸업작품을 온라인에서 전시해주는 사이트",
         date: "2023.07 ~ 2023.10"
@@ -37,11 +41,11 @@ const projectsData = [
     {
         href: "/moonlight",
         imageSrc: muin,
+        videoSrc: "",
         title: "실시간 숙박업 무인 관제 시스템",
         description: "인건비 부담이 되는 숙박업소를 위한 정해진 시간동안 무인으로 운영 가능하도록 관제해주는 플랫폼",
         date: "2024.12 ~ 2025.02"
     },
-
 ];
 
 export default function Project() {
@@ -54,6 +58,7 @@ export default function Project() {
                         key={index}
                         href={project.href}
                         imageSrc={project.imageSrc}
+                        videoSrc={project.videoSrc}
                         title={project.title}
                         description={project.description}
                         date={project.date}
