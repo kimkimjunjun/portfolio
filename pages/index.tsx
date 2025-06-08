@@ -103,7 +103,7 @@ export default function Home() {
         <div className={`${shouldApplyFadeIn ? "fadeIn" : ""} flex h-full w-full flex-col lg:flex-row`}>
           <SideBar activeSectionId={activeSectionId} />
           <main className="flex-grow w-full mt-[4rem] lg:mt-0 lg:ml-[15rem]">
-            <section id="about-me" className="my-[5rem] md:my-[9rem]">
+            <section id="about-me" className="mt-[5rem] mb-[8rem] md:my-[9rem]">
               <Introduction />
             </section>
 
