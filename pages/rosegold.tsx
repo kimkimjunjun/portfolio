@@ -2,7 +2,6 @@ import Slider from '@/components/slider';
 import Backbutton from '@/components/backbutton';
 import { useState } from 'react';
 import DeatilSection from '@/components/project/detailsection';
-import Operational from '@/components/experience/operational';
 
 const sliderImages = [
     '/images/slides/1.png',
