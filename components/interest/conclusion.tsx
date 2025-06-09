@@ -10,16 +10,28 @@ export default function Conclusion() {
                     <span className="">항상 배워가는 자세로 임하고 있으며, 새로운 것에 대한 도전을 두려워하지 않고 꾸준히 발전하는 개발자로 나아가겠습니다. </span>
 
                 </div>
-                <Link
-                    href="https://github.com/kimkimjunjun"
-                    className="
-                    relative inline-block w-fit h-[5rem] md:h-[4.5rem] text-[2rem] font-semibold my-[2rem] border-b-2 border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
+                <div className="flex space-x-3">
+                    <Link
+                        href="https://github.com/kimkimjunjun"
+                        className="
+                    relative inline-block w-fit h-[2.5rem] md:h-[3rem] text-[1.5rem] md:text-[2rem] font-semibold my-[2rem] border-b-2 border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
                 "
-                >
-                    <span className="relative z-10 px-[1rem]">
-                        GitHub
-                    </span>
-                </Link>
+                    >
+                        <span className="relative z-10 px-[1rem]">
+                            GitHub
+                        </span>
+                    </Link>
+                    {/* <Link
+                        href="/notion"
+                        className="
+                    relative inline-block w-fit h-[2.5rem] md:h-[3rem] text-[1.5rem] md:text-[2rem] font-semibold my-[2rem] border-b-2 border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
+                "
+                    >
+                        <span className="relative z-10 px-[1rem]">
+                            기술정리
+                        </span>
+                    </Link> */}
+                </div>
                 <div className="h-full flex flex-col justify-end text-center lg:text-start text-[0.55rem] lg:text-[1rem] pb-[3rem] lg:pb-[2rem] font-medium">
                     <p>© 2025. 김준휘 All rights reserved</p>
                     <p>NEXT.JS 환경 TypeScript 및 TailWindCSS를 기반으로 제작된 웹사이트입니다.</p>
