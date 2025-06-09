@@ -7,7 +7,7 @@ export default function Conclusion() {
                 <h1 className="text-[2rem] lg:text-[4rem] font-bold">THANK YOU</h1>
                 <div className="flex flex-col text-[0.6rem] lg:text-[1rem] font-medium">
                     <span className="">현재 프론트엔드 개발 역량 강화를 위해 효율적인 사용자 경험 제공과 문제 해결 능력, 그리고 성장에 집중하고 있습니다. </span>
-                    <span className="">아직 부족한 점이 있으나, 목표 달성을 향해 끈기 있게 실행하며 꾸준히 발전하는 개발자로 나아가겠습니다.</span>
+                    <span className="">항상 배워가는 자세로 임하고 있으며, 새로운 것에 대한 도전을 두려워하지 않고 꾸준히 발전하는 개발자로 나아가겠습니다. </span>
 
                 </div>
                 <Link
