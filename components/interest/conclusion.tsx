@@ -21,7 +21,7 @@ export default function Conclusion() {
                             GitHub
                         </span>
                     </Link>
-                    {/* <Link
+                    <Link
                         href="/notion"
                         className="
                     relative inline-block w-fit h-[2.5rem] md:h-[3rem] text-[1.5rem] md:text-[2rem] font-semibold my-[2rem] border-b-2 border-black overflow-hidden transition-colors duration-300 text-black before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-black before:transition-[height] before:duration-300 before:ease-in-out before:z-0 hover:text-white hover:before:h-full
@@ -30,7 +30,7 @@ export default function Conclusion() {
                         <span className="relative z-10 px-[1rem]">
                             기술정리
                         </span>
-                    </Link> */}
+                    </Link>
                 </div>
                 <div className="h-full flex flex-col justify-end text-center lg:text-start text-[0.55rem] lg:text-[1rem] pb-[3rem] lg:pb-[2rem] font-medium">
                     <p>© 2025. 김준휘 All rights reserved</p>
