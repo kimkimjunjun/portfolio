@@ -4,46 +4,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { getDatabasePages } from '@/lib/notion';
-
-const renderPropertyValue = (property: any) => {
-    switch (property.type) {
-        case 'title':
-        case 'rich_text':
-            return property[property.type].map((rt: any) => rt.plain_text).join('');
-        case 'date':
-            if (!property.date) return '날짜 없음';
-            return `${property.date.start}${property.date.end ? ' ~ ' + property.date.end : ''}`;
-        case 'multi_select':
-            return property.multi_select.map((option: any) => (
-                <span key={option.id} style={{
-                    backgroundColor: option.color !== 'default' ? `var(--notion-${option.color}_background)` : '#eee',
-                    color: option.color !== 'default' ? `var(--notion-${option.color})` : '#333',
-                    padding: '2px 6px',
-                    marginRight: '4px',
-                    borderRadius: '4px',
-                    fontSize: '0.8em',
-                }}>
-                    {option.name}
-                </span>
-            ));
-        case 'select':
-            return property.select ? property.select.name : '선택 안됨';
-        case 'checkbox':
-            return property.checkbox ? '✅ 체크됨' : '⬜ 체크 안됨';
-        case 'url':
-            return property.url ? <a href={property.url} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline' }}>{property.url}</a> : 'URL 없음';
-        case 'number':
-            return property.number !== null ? property.number : '숫자 없음';
-        case 'created_time':
-        case 'last_edited_time':
-            const date = new Date(property[property.type]);
-            return date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
-        default:
-            console.warn(`Unsupported property type for rendering: ${property.type}`, property);
-            return `[${property.type}]`;
-    }
-};
-
+import { renderPropertyValue } from "@/components/notion/renderValue";
 
 interface HomeProps {
     data?: PageObjectResponse[];
@@ -58,10 +19,10 @@ export default function NotionPage({ data, error }: HomeProps) {
     if (!data) {
         return <div>데이터를 불러오는 중...</div>;
     }
-
+    console.log(data)
     return (
-        <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-            <h1>NotionDB 블로그</h1>
+        <div className="" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+            <h1 className="text-center text-[2rem]">NotionDB 기술정리 블로그</h1>
             {data.length > 0 ? (
                 <div style={{
                     display: 'grid',
@@ -74,8 +35,8 @@ export default function NotionPage({ data, error }: HomeProps) {
                         const coverImage = page.cover?.type === 'external' ? page.cover.external.url : page.cover?.type === 'file' ? page.cover.file.url : null;
 
                         return (
-                            <Link href={`/${page.id}`} key={page.id} passHref>
-                                <div style={{
+                            <Link href={`/notion/${page.id}`} key={page.id} passHref>
+                                <div className="hover:bg-gray-300 transition-all duration-200" style={{
                                     border: '1px solid #eee',
                                     borderRadius: '8px',
                                     overflow: 'hidden', // 커버 이미지 모서리 둥글게

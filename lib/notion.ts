@@ -5,11 +5,9 @@ import { NotionAPI } from 'notion-client';
 const notionSecret = process.env.NOTION_API_KEY;
 const notionDatabaseId = process.env.NOTION_DATABASE_ID;
 
-const notion = new Client({ auth: notionSecret });
+const notionAPI = new NotionAPI();
 
-const notionAPI = new NotionAPI({
-    authToken: notionSecret // 비공개 페이지 접근 시 필요
-});
+const notion = new Client({ auth: notionSecret });
 
 
 export async function getDatabasePages(): Promise<PageObjectResponse[]> {
