@@ -1,9 +1,12 @@
 import { GetServerSideProps } from 'next';
 import { getPageContent } from '@/lib/notion';
 import 'react-notion-x/src/styles.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // useState, useEffect 임포트
 import { NotionBlockRenderer } from '@/components/notion/notionBlocks';
 import Backbutton from '@/components/backbutton';
+
+import Skeleton from 'react-loading-skeleton';
+
 
 type NotionTagColor = 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red';
 
@@ -43,19 +46,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         };
     }
 
-    const productItem = await getPageContent(id);
+    try {
+        const productItem = await getPageContent(id);
 
-    if (!productItem || !productItem.results || !productItem.properties) {
+        if (!productItem || !productItem.results || !productItem.properties) {
+            return {
+                notFound: true,
+            };
+        }
+
         return {
-            notFound: true,
+            props: {
+                productItem,
+            },
+        };
+    } catch (error: any) {
+        console.error("Error in getServerSideProps (Notion Page):", error);
+        return {
+            props: {
+                productItem: null,
+                error: error.message || "Failed to fetch Notion page content.",
+            },
         };
     }
-
-    return {
-        props: {
-            productItem,
-        },
-    };
 };
 
 interface NotionPageProps {
@@ -63,12 +76,45 @@ interface NotionPageProps {
         results: any[];
         properties: any;
     } | null;
+    error?: string;
 }
 
-export default function NotionPage({ productItem }: NotionPageProps) {
+export default function NotionPage({ productItem, error }: NotionPageProps) {
+    const [isLoading, setIsLoading] = useState(true);
 
-    if (!productItem || !productItem.results || !productItem.properties) {
-        return <div>데이터를 불러오지 못했습니다.</div>;
+    useEffect(() => {
+        if (productItem || error) {
+            setIsLoading(false);
+        }
+    }, [productItem, error]);
+
+    if (isLoading || error || !productItem) {
+        if (error) {
+            return <div>데이터를 불러오는 중 오류가 발생했습니다: {error}</div>;
+        }
+        return (
+            <div className="notion-page-container" style={{ padding: '20px', maxWidth: '700px', margin: '0 auto' }}>
+                <Backbutton />
+                {/* 스켈레톤 제목 */}
+                <div className='notion-h1' style={{ marginTop: '1.5em', marginBottom: '0.5em' }}>
+                    <Skeleton height={40} width="80%" />
+                </div>
+                {/* 스켈레톤 생성일 */}
+                <div style={{ marginBottom: '20px' }}>
+                    <Skeleton height={15} width="40%" />
+                </div>
+                {/* 스켈레톤 태그 */}
+                <div style={{ marginBottom: '20px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    <Skeleton height={20} width={60} count={3} inline style={{ marginRight: '8px' }} />
+                </div>
+                <hr style={{ marginBottom: '20px' }} /> {/* 구분선 스켈레톤 */}
+                <Skeleton count={5} height={20} style={{ marginBottom: '10px' }} /> {/* 문단 스켈레톤 */}
+                <Skeleton height={30} width="60%" style={{ marginBottom: '10px' }} /> {/* 제목 스켈레톤 */}
+                <Skeleton count={3} height={20} style={{ marginBottom: '10px' }} /> {/* 문단 스켈레톤 */}
+                <Skeleton height={100} style={{ marginBottom: '10px' }} /> {/* 코드 블록 또는 이미지 스켈레톤 */}
+                <Skeleton count={2} height={20} style={{ marginBottom: '10px' }} /> {/* 문단 스켈레톤 */}
+            </div>
+        );
     }
 
     const pageProperties = productItem.properties;
@@ -92,16 +138,14 @@ export default function NotionPage({ productItem }: NotionPageProps) {
         }
     }
 
-
     const tagsProperty = pageProperties['태그'];
     let tags: { id: string; name: string; color: NotionTagColor }[] = [];
     if (tagsProperty && tagsProperty.type === 'multi_select') {
         tags = tagsProperty.multi_select;
     }
 
-    // console.log(productItem)
     return (
-        <div className="notion-page-container">
+        <div className="notion-page-container bg-white min-h-screen" style={{ padding: '20px', maxWidth: '700px', margin: '0 auto' }}> {/* 최대 너비 설정 */}
             <Backbutton />
             <h1 className='notion-h1 text-[4rem]'>{pageTitle}</h1>
 
@@ -135,7 +179,7 @@ export default function NotionPage({ productItem }: NotionPageProps) {
                     })}
                 </div>
             )}
-            <hr />
+            <hr style={{ marginBottom: '20px' }} />
             {productItem.results.map((block) => (
                 <NotionBlockRenderer key={block.id} block={block} />
             ))}
