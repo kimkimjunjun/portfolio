@@ -60,6 +60,7 @@ export const NotionParagraph: React.FC<BlockProps> = ({ block }) => {
     );
 };
 
+
 export const NotionListItem: React.FC<BlockProps> = ({ block }) => {
     const richText = block.numbered_list_item?.rich_text || block.bulleted_list_item?.rich_text;
     if (!richText) return null;
@@ -100,7 +101,7 @@ export const NotionBlockRenderer: React.FC<BlockProps> = ({ block }) => {
             return <NotionHeading3 block={block} key={block.id} />;
         case "paragraph":
             return <NotionParagraph block={block} key={block.id} />;
-        case "numbered_list_item":
+        // case "numbered_list_item":
         case "bulleted_list_item":
             return <NotionListItem block={block} key={block.id} />;
         case "code":

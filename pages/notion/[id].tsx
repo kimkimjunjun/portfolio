@@ -99,7 +99,7 @@ export default function NotionPage({ productItem }: NotionPageProps) {
         tags = tagsProperty.multi_select;
     }
 
-    console.log(productItem)
+    // console.log(productItem)
     return (
         <div className="notion-page-container">
             <Backbutton />
