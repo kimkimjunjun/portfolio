@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { PageObjectResponse, BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { PageObjectResponse, BlockObjectResponse, ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionAPI } from 'notion-client';
 
 const notionSecret = process.env.NOTION_API_KEY;
@@ -31,24 +31,19 @@ export async function getDatabasePages(): Promise<PageObjectResponse[]> {
     }
 }
 
-export async function getNotionPageRecordMap(pageId: string): Promise<any> {
-    if (!notionSecret) {
-        console.warn("환경 변수 NOTION_TOKEN_V2가 설정되지 않았습니다. 비공개 Notion 페이지를 가져올 수 없습니다.");
-        console.warn("페이지가 비공개라면 Notion 웹사이트에서 tokenV2 쿠키 값을 찾아 환경 변수에 설정해주세요.");
-    }
-
+export const getPageContent = async (pageId: string) => {
     try {
-        const recordMap = await notionAPI.getPage(pageId);
+        const pageData = await notion.pages.retrieve({ page_id: pageId }) as PageObjectResponse;
 
-        if (!recordMap || Object.keys(recordMap.block).length === 0) {
-            console.warn(`페이지 ID ${pageId}에 대한 recordMap이 비어있습니다.`);
-            throw new Error(`페이지 ${pageId}의 내용을 찾을 수 없습니다. 페이지 ID, 공개 설정 또는 내용을 확인해주세요.`);
-        }
+        const blockChildData: ListBlockChildrenResponse = await notion.blocks.children.list({ block_id: pageId });
 
-        return recordMap;
+        return {
+            ...blockChildData,
+            properties: pageData.properties,
+        };
 
-    } catch (error: any) {
-        console.error(`페이지 ID ${pageId}에 대한 recordMap 가져오기 오류:`, error);
-        throw new Error(`페이지 ${pageId} 데이터 가져오기 실패: ${error.message}. 페이지 ID, 공개 설정 또는 tokenV2 설정을 확인해주세요.`);
+    } catch (error) {
+        console.error("Error fetching Notion page content:", error);
+        return null;
     }
-}
+};

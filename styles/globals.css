@@ -142,3 +142,80 @@ body {
 .project:hover {
   box-shadow: 0px 2px 8px 4px gray;
 }
+
+
+/* Notion 페이지 전체 컨테이너 스타일 */
+.notion-page-container {
+  max-width: 700px;
+  /* Notion 페이지의 일반적인 너비 */
+  margin: 0 auto;
+  /* 중앙 정렬 */
+  padding: 20px;
+  line-height: 1.6;
+  /* 줄 간격 */
+  font-family: sans-serif;
+  /* 기본 폰트 */
+}
+
+/* Heading 1 스타일 */
+.notion-h1 {
+  font-size: 3em;
+  /* Notion H1과 유사한 크기 */
+  font-weight: 600;
+  /* 볼드 */
+  margin-top: 1.5em;
+  /* 위쪽 여백 */
+  margin-bottom: 0.5em;
+  /* 아래쪽 여백 */
+}
+
+.notion-h2 {
+  font-size: 2em;
+  /* Notion H2와 유사한 크기 */
+  font-weight: 600;
+  /* 볼드 */
+  margin-top: 1.2em;
+  /* 위쪽 여백 */
+  margin-bottom: 0.4em;
+  /* 아래쪽 여백 */
+}
+
+/* Heading 3 스타일 추가 */
+.notion-h3 {
+  font-size: 1.25em;
+  /* Notion H3와 유사한 크기 */
+  font-weight: 600;
+  /* 볼드 */
+  margin-top: 1em;
+  /* 위쪽 여백 */
+  margin-bottom: 0.3em;
+  /* 아래쪽 여백 */
+}
+
+/* Paragraph 스타일 */
+.notion-paragraph {
+  margin-top: 0.5em;
+  /* 위쪽 여백 */
+  margin-bottom: 0.5em;
+  /* 아래쪽 여백 */
+}
+
+/* 리스트 아이템 공통 스타일 */
+.notion-list-item {
+  margin-left: 1.5em;
+  /* 들여쓰기 */
+  margin-bottom: 0.25em;
+  /* 아이템 간 간격 */
+}
+
+/* 번호 매기기 리스트 아이템 스타일 */
+.notion-numbered-list-item {
+  list-style-type: decimal;
+  /* 숫자 */
+}
+
+/* 글머리 기호 리스트 아이템 스타일 */
+.notion-bulleted-list-item {
+  list-style-type: disc;
+  /* 원형 기호 */
+}
