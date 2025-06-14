@@ -31,7 +31,7 @@ const NotionPageCard: React.FC<NotionPageCardProps> = ({ page, renderPropertyVal
 
     return (
         <Link href={`/notion/${page.id}`} key={page.id} passHref>
-            <div className="hover:bg-gray-200 hover:-translate-y-2 transition-all duration-300" style={{
+            <div className="hover:bg-gray-200 hover:-translate-y-2 transition-all duration-300 bg-white" style={{
                 border: '1px solid #eee',
                 borderRadius: '8px',
                 overflow: 'hidden',
