@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { getDatabasePages } from '@/lib/notion';
 import { renderPropertyValue } from "@/components/notion/renderValue";
+import NotionPageCard from "@/components/notion/notionPageCard";
 
 interface HomeProps {
     data?: PageObjectResponse[];
@@ -18,77 +19,28 @@ export default function NotionPage({ data, error }: HomeProps) {
     if (!data) {
         return <div>데이터를 불러오는 중...</div>;
     }
+
+    const sortedData = [...data].sort((a, b) => {
+        const dateA = new Date(a.last_edited_time);
+        const dateB = new Date(b.last_edited_time);
+
+        const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+        const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+
+        return timeB - timeA;
+    });
     // console.log(data)
     return (
         <div className="" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
             <Link href="/">포트폴리오페이지로 돌아가기</Link>
-            <h1 className="text-center text-[1.2rem] md:text-[2rem] my-[2rem]">NotionDB 기술정리 블로그</h1>
+            <h1 className="text-center text-[1.2rem] md:text-[2rem] my-[2rem] font-bold">NotionDB 기술정리 블로그</h1>
             {data.length > 0 ? (
-                <div style={{
-                    display: 'grid',
+                <div className="grid gap-[2rem]" style={{
                     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-                    gap: '20px',
                 }}>
-                    {data.map((page) => {
-                        const nameProperty = page.properties?.['이름'];
-                        const titleProperty = (nameProperty && nameProperty.type === 'title' && nameProperty.title.length > 0)
-                            ? nameProperty.title[0].plain_text
-                            : '제목 없음';
-                        const coverImage = page.cover?.type === 'external' ? page.cover.external.url : page.cover?.type === 'file' ? page.cover.file.url : null;
-
-                        let formattedCreatedTime = '생성일 정보 없음';
-                        if (page.last_edited_time) {
-                            const date = new Date(page.last_edited_time);
-                            if (!isNaN(date.getTime())) {
-                                const datePart = date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
-                                // const timePart = date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: true });
-                                formattedCreatedTime = `${datePart}`;
-                            } else {
-                                formattedCreatedTime = '유효하지 않은 생성일 날짜';
-                            }
-                        }
+                    {sortedData.map((page) => {
                         return (
-                            <Link href={`/notion/${page.id}`} key={page.id} passHref>
-                                <div className="hover:bg-gray-200 transition-all duration-200" style={{
-                                    border: '1px solid #eee',
-                                    borderRadius: '8px',
-                                    overflow: 'hidden',
-                                    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    cursor: 'pointer',
-                                    height: '100%',
-                                    textDecoration: 'none',
-                                    color: 'inherit',
-                                }}>
-                                    {coverImage && (
-                                        <img
-                                            src={coverImage}
-                                            alt={titleProperty}
-                                            style={{
-                                                width: '100%',
-                                                height: '150px',
-                                                objectFit: 'cover',
-                                            }}
-                                        />
-                                    )}
-                                    <div style={{ padding: '15px', flexGrow: 1 }}>
-                                        <h3 style={{ marginTop: 0, marginBottom: '10px', fontSize: '1.1em' }}>
-                                            {titleProperty}
-                                        </h3>
-                                        <div style={{ fontSize: '0.9em', color: '#555' }}>
-                                            {Object.entries(page.properties).map(([propertyName, propertyValue]) => (
-                                                propertyName !== '이름' && propertyName !== '태그' ? null : (
-                                                    <div key={propertyName} style={{ marginBottom: '5px' }}>
-                                                        {renderPropertyValue(propertyValue)}
-                                                    </div>
-                                                )
-                                            ))}
-                                            <p className="flex">마지막 업데이트: {formattedCreatedTime}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <NotionPageCard page={page} renderPropertyValue={renderPropertyValue} />
                         );
                     })}
                 </div>
