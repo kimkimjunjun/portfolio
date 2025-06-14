@@ -18,10 +18,11 @@ export default function NotionPage({ data, error }: HomeProps) {
     if (!data) {
         return <div>데이터를 불러오는 중...</div>;
     }
+    // console.log(data)
     return (
         <div className="" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
             <Link href="/">포트폴리오페이지로 돌아가기</Link>
-            <h1 className="text-center text-[2rem] mb-[2rem]">NotionDB 기술정리 블로그</h1>
+            <h1 className="text-center text-[1.2rem] md:text-[2rem] my-[2rem]">NotionDB 기술정리 블로그</h1>
             {data.length > 0 ? (
                 <div style={{
                     display: 'grid',
@@ -35,6 +36,17 @@ export default function NotionPage({ data, error }: HomeProps) {
                             : '제목 없음';
                         const coverImage = page.cover?.type === 'external' ? page.cover.external.url : page.cover?.type === 'file' ? page.cover.file.url : null;
 
+                        let formattedCreatedTime = '생성일 정보 없음';
+                        if (page.last_edited_time) {
+                            const date = new Date(page.last_edited_time);
+                            if (!isNaN(date.getTime())) {
+                                const datePart = date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+                                // const timePart = date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: true });
+                                formattedCreatedTime = `${datePart}`;
+                            } else {
+                                formattedCreatedTime = '유효하지 않은 생성일 날짜';
+                            }
+                        }
                         return (
                             <Link href={`/notion/${page.id}`} key={page.id} passHref>
                                 <div className="hover:bg-gray-200 transition-all duration-200" style={{
@@ -66,12 +78,13 @@ export default function NotionPage({ data, error }: HomeProps) {
                                         </h3>
                                         <div style={{ fontSize: '0.9em', color: '#555' }}>
                                             {Object.entries(page.properties).map(([propertyName, propertyValue]) => (
-                                                propertyName !== '이름' && propertyName !== '생성일' && propertyName !== '태그' ? null : (
+                                                propertyName !== '이름' && propertyName !== '태그' ? null : (
                                                     <div key={propertyName} style={{ marginBottom: '5px' }}>
                                                         {renderPropertyValue(propertyValue)}
                                                     </div>
                                                 )
                                             ))}
+                                            <p className="flex">마지막 업데이트: {formattedCreatedTime}</p>
                                         </div>
                                     </div>
                                 </div>
