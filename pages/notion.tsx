@@ -20,7 +20,8 @@ export default function NotionPage({ data, error }: HomeProps) {
     }
     return (
         <div className="" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-            <h1 className="text-center text-[2rem]">NotionDB 기술정리 블로그</h1>
+            <Link href="/">포트폴리오페이지로 돌아가기</Link>
+            <h1 className="text-center text-[2rem] mb-[2rem]">NotionDB 기술정리 블로그</h1>
             {data.length > 0 ? (
                 <div style={{
                     display: 'grid',

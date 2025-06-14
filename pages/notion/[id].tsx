@@ -3,6 +3,7 @@ import { getPageContent } from '@/lib/notion';
 import 'react-notion-x/src/styles.css';
 import React from 'react';
 import { NotionBlockRenderer } from '@/components/notion/notionBlocks';
+import Backbutton from '@/components/backbutton';
 
 type NotionTagColor = 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red';
 
@@ -101,6 +102,7 @@ export default function NotionPage({ productItem }: NotionPageProps) {
 
     return (
         <div className="notion-page-container">
+            <Backbutton />
             <h1 className='notion-h1 text-[4rem]'>{pageTitle}</h1>
 
             <span>생성일: {formattedCreatedTime}</span>
