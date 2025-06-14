@@ -1,7 +1,10 @@
+// components/NotionBlocks.tsx
+
+import { RichTextItemResponse } from '@notionhq/client';
 import React from 'react';
 
 interface RichTextProps {
-    rich_text: string[];
+    rich_text: RichTextItemResponse[];
 }
 
 const RichTextRenderer: React.FC<RichTextProps> = ({ rich_text }) => {
@@ -70,20 +73,38 @@ export const NotionListItem: React.FC<BlockProps> = ({ block }) => {
     );
 };
 
+export const NotionCode: React.FC<BlockProps> = ({ block }) => {
+    if (!block.code) return null;
+
+    const codeContent = block.code.rich_text.map((rt: any) => rt.plain_text).join('');
+    const language = block.code.language || 'plain text';
+
+    return (
+        <pre className="notion-code">
+            {/* <div className="notion-code-language">{language}</div> */}
+            <code className={`language-${language}`}>
+                {codeContent}
+            </code>
+        </pre>
+    );
+};
+
 
 export const NotionBlockRenderer: React.FC<BlockProps> = ({ block }) => {
     switch (block.type) {
         case "heading_1":
-            return <NotionHeading1 block={block} />;
+            return <NotionHeading1 block={block} key={block.id} />;
         case "heading_2":
-            return <NotionHeading2 block={block} />;
+            return <NotionHeading2 block={block} key={block.id} />;
         case "heading_3":
-            return <NotionHeading3 block={block} />;
+            return <NotionHeading3 block={block} key={block.id} />;
         case "paragraph":
-            return <NotionParagraph block={block} />;
+            return <NotionParagraph block={block} key={block.id} />;
         case "numbered_list_item":
         case "bulleted_list_item":
-            return <NotionListItem block={block} />;
+            return <NotionListItem block={block} key={block.id} />;
+        case "code":
+            return <NotionCode block={block} key={block.id} />;
         default:
             console.warn(`Unsupported block type for rendering: ${block.type}`, block);
             return null;
