@@ -99,43 +99,24 @@ body {
 
 .underline-animation {
   position: relative;
-  /* ::after 의사 요소의 위치 기준점 */
   display: inline-block;
-  /* 텍스트 너비만큼만 영역 차지 */
-  /* 기본 텍스트 밑줄이 보이지 않도록 할 경우 주석 해제 */
-  /* text-decoration: none; */
 }
 
-/* 밑줄 역할을 할 ::after 의사 요소 스타일 */
 .underline-animation::after {
   content: '';
-  /* 의사 요소는 content 속성이 필수 */
   position: absolute;
   left: 0;
-  /* 텍스트의 왼쪽 끝에서 시작 */
   bottom: 0;
-  /* 밑줄의 세로 위치 조정 (텍스트 아래에 위치) */
   width: 0%;
-  /* 초기 너비 0% (숨겨진 상태) */
   height: 4px;
-  /* 밑줄 두께 */
   background-color: #FFECB3;
-  /* 텍스트와 동일한 색상으로 밑줄 표시 */
-  /* background-color: #000; */
-  /* 특정 색상으로 지정할 수도 있습니다. */
-
-  /* 애니메이션 적용 */
   animation: drawUnderline 1.0s ease-out forwards;
-  /* drawUnderline 애니메이션을 1초 동안 ease-out 타이밍 함수로 실행하고 종료 상태 유지 */
   animation-delay: 0.5s;
-  /* 컴포넌트가 나타난 후 0.5초 대기 후 애니메이션 시작 */
 }
 
-/* 밑줄이 그려지는 애니메이션 정의 */
 @keyframes drawUnderline {
   to {
     width: 100%;
-    /* 애니메이션 종료 시 너비 100% (텍스트 전체 너비) */
   }
 }
 
@@ -144,78 +125,49 @@ body {
 }
 
 
-/* Notion 페이지 전체 컨테이너 스타일 */
 .notion-page-container {
   max-width: 700px;
-  /* Notion 페이지의 일반적인 너비 */
   margin: 0 auto;
-  /* 중앙 정렬 */
   padding: 20px;
   line-height: 1.6;
-  /* 줄 간격 */
   font-family: sans-serif;
-  /* 기본 폰트 */
 }
 
-/* Heading 1 스타일 */
 .notion-h1 {
-  font-size: 3em;
-  /* Notion H1과 유사한 크기 */
+  font-size: 3rem;
   font-weight: 600;
-  /* 볼드 */
   margin-top: 1.5em;
-  /* 위쪽 여백 */
   margin-bottom: 0.5em;
-  /* 아래쪽 여백 */
 }
 
 .notion-h2 {
   font-size: 2em;
-  /* Notion H2와 유사한 크기 */
   font-weight: 600;
-  /* 볼드 */
   margin-top: 1.2em;
-  /* 위쪽 여백 */
   margin-bottom: 0.4em;
-  /* 아래쪽 여백 */
 }
 
-/* Heading 3 스타일 추가 */
 .notion-h3 {
   font-size: 1.25em;
-  /* Notion H3와 유사한 크기 */
   font-weight: 600;
-  /* 볼드 */
   margin-top: 1em;
-  /* 위쪽 여백 */
   margin-bottom: 0.3em;
-  /* 아래쪽 여백 */
 }
 
-/* Paragraph 스타일 */
 .notion-paragraph {
   margin-top: 0.5em;
-  /* 위쪽 여백 */
   margin-bottom: 0.5em;
-  /* 아래쪽 여백 */
 }
 
-/* 리스트 아이템 공통 스타일 */
 .notion-list-item {
   margin-left: 1.5em;
-  /* 들여쓰기 */
   margin-bottom: 0.25em;
-  /* 아이템 간 간격 */
 }
 
-/* 번호 매기기 리스트 아이템 스타일 */
 .notion-numbered-list-item {
   list-style-type: decimal;
-  /* 숫자 */
 }
 
-/* 글머리 기호 리스트 아이템 스타일 */
 .notion-bulleted-list-item {
   list-style-type: disc;
-  /* 원형 기호 */
 }

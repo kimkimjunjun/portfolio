@@ -1,9 +1,8 @@
 import { GetServerSideProps } from 'next';
 import { getPageContent } from '@/lib/notion';
-import 'react-notion-x/src/styles.css'; // react-notion-x 스타일 시트 (필요하다면 유지)
-import React from 'react'; // React 임포트
-
-import { NotionBlockRenderer } from '@/components/notion/notionBlocks'; // 경로 확인
+import 'react-notion-x/src/styles.css';
+import React from 'react';
+import { NotionBlockRenderer } from '@/components/notion/notionBlocks';
 
 type NotionTagColor = 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red';
 
@@ -34,7 +33,6 @@ const notionTextColorMap: Record<NotionTagColor, string> = {
 };
 
 
-// getServerSideProps 함수는 이전과 동일합니다.
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { id } = context.params as { id: string };
 
@@ -59,12 +57,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 };
 
-// NotionPage 컴포넌트는 props로 데이터를 받습니다.
 interface NotionPageProps {
     productItem: {
-        results: any[]; // Notion API 블록 객체 배열
-        properties: any; // Notion API 페이지 속성 객체
-        // getPageContent에서 반환하는 다른 속성들도 여기에 추가할 수 있습니다.
+        results: any[];
+        properties: any;
     } | null;
 }
 
@@ -77,15 +73,13 @@ export default function NotionPage({ productItem }: NotionPageProps) {
 
     const pageProperties = productItem.properties;
 
-    // 페이지 제목 가져오기 (속성 이름은 실제 Notion DB에 맞게 확인 필요)
-    const titleProperty = pageProperties['이름']; // '이름' 속성이 제목이라고 가정
+    const titleProperty = pageProperties['이름'];
     let pageTitle = '제목 없음';
     if (titleProperty && titleProperty.type === 'title' && titleProperty.title.length > 0) {
-        pageTitle = titleProperty.title[0].plain_text; // rich_text 배열의 첫 번째 요소의 plain_text 사용
+        pageTitle = titleProperty.title[0].plain_text;
     }
 
-    // 생성일 가져오기 및 포맷팅 (이전 답변의 로직 활용)
-    const createdTimeProperty = pageProperties['생성일']; // '생성일' 속성이라고 가정
+    const createdTimeProperty = pageProperties['생성일'];
     let formattedCreatedTime = '생성일 정보 없음';
     if (createdTimeProperty && createdTimeProperty.type === 'created_time' && createdTimeProperty.created_time) {
         const date = new Date(createdTimeProperty.created_time);
@@ -99,8 +93,7 @@ export default function NotionPage({ productItem }: NotionPageProps) {
     }
 
 
-    // 태그 속성 가져오기
-    const tagsProperty = pageProperties['태그']; // '태그' 속성이라고 가정
+    const tagsProperty = pageProperties['태그'];
     let tags: { id: string; name: string; color: NotionTagColor }[] = [];
     if (tagsProperty && tagsProperty.type === 'multi_select') {
         tags = tagsProperty.multi_select;
@@ -108,14 +101,11 @@ export default function NotionPage({ productItem }: NotionPageProps) {
 
 
     return (
-        <div className="notion-page-container"> {/* 전체 페이지 컨테이너 */}
-            {/* 페이지 제목 표시 */}
-            <h1 className='notion-h1'>{pageTitle}</h1>
+        <div className="notion-page-container">
+            <h1 className='notion-h1 text-[4rem]'>{pageTitle}</h1>
 
-            {/* 생성일 표시 */}
             <span>생성일: {formattedCreatedTime}</span>
 
-            {/* 태그 정보 표시 */}
             {tags.length > 0 && (
                 <div className="notion-tags-container items-center" style={{ marginBottom: '20px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     태그:
