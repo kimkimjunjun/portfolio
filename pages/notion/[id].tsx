@@ -65,7 +65,6 @@ interface NotionPageProps {
 }
 
 export default function NotionPage({ productItem }: NotionPageProps) {
-    console.log("Product Item Data: ", productItem);
 
     if (!productItem || !productItem.results || !productItem.properties) {
         return <div>데이터를 불러오지 못했습니다.</div>;
